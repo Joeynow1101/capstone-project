@@ -1,7 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function Profile() {
-  return <div>Profil</div>;
+  return (
+    <>
+      <div>Profil</div>
+      <Navbar />
+    </>
+  );
 }
 
 export default Profile;
