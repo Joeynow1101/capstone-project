@@ -2,17 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import GlobalStyles from "./GlobalStyles/GlobalStyles";
 import FontStyles from "./GlobalStyles/GlobalFonts";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <BrowserRouter>
       <GlobalStyles />
       <FontStyles />
       <App />
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
