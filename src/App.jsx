@@ -13,7 +13,7 @@ function App() {
       <Route path="feeding" element={<Feeding />} />
       <Route path="appointment" element={<Appointment />} />
       <Route path="notes" element={<Notes />} />
-      <Route path="*" element={<h2>Page not found </h2>} />
+      <Route path="*" element={<h2>Page not found</h2>} />
     </Routes>
   );
 }
