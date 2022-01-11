@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 function Profile() {
   return (
     <>
-      <div>Profil</div>
+      <Header titleText={"Profil"} />
       <Navbar />
     </>
   );
