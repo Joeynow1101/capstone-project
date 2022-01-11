@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import Logo from "../Images/Logo.svg";
+import { NavLink } from "react-router-dom";
 
 export default function Home() {
   return (
     <Container>
-      <a href="/profile">
+      <NavLink to="/profile">
         <img src={Logo} alt="Logo" />
-      </a>
+      </NavLink>
     </Container>
   );
 }
