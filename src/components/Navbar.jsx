@@ -29,9 +29,11 @@ export default Navbar;
 
 const Nav = styled.nav`
   width: 100%;
+  height: 70px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: fixed;
   bottom: 0;
+  background-color: var(--primary);
 `;

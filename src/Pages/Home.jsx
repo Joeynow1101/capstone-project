@@ -1,3 +1,4 @@
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import styled from "styled-components";
 import Logo from "../Images/Logo.svg";
 import { NavLink } from "react-router-dom";
