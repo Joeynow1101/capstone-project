@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-import Background from "../Images/Background.png";
 
 const GlobalStyles = createGlobalStyle`
 *{
@@ -11,10 +10,11 @@ const GlobalStyles = createGlobalStyle`
 :root {
     --primary: #FDE8CE;
     --primary-one: #C8B49B;
+    --primary-one-opacity: #c8b49b21;
     --primary-two: #95836C;
     --secondary-one: #65553F;
     --secondary-two: #382B17;
-  }
+}
 
 body {
     background: var(--primary);

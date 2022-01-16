@@ -8,10 +8,12 @@ function Note({ text, notes, setNotes, note }) {
 
   return (
     <NoteBox>
-      <li>{text}</li>
-      <button onClick={deleteHandler}>
-        <img src={DeleteIcon} alt="" />
-      </button>
+      <span>{text}</span>
+      <NoteFooter>
+        <button onClick={deleteHandler}>
+          <img src={DeleteIcon} alt="" />
+        </button>
+      </NoteFooter>
     </NoteBox>
   );
 }
@@ -19,25 +21,38 @@ function Note({ text, notes, setNotes, note }) {
 export default Note;
 
 const NoteBox = styled.div`
-  margin: 1rem;
-  background: transparent;
-  font-size: 1.5rem;
-  color: var(--secondary-one);
+  background-color: var(--primary-one-opacity);
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.07),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.05),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.01),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.01),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.01);
+  border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  
+  overflow-wrap: break-word;
+
+  span {
+    color: var(--secondary-one);
+  }
+`;
+
+const NoteFooter = styled.div`
+  display: flex;
+  justify-content: flex-end;
 
   button {
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    color: var(--primary-two);
+    width: 36px;
+    height: 36px;
+
     background-color: var(--primary-one);
     border: none;
-    margin-left: 2rem;
     img {
-      width: 1rem;
+      width: 16px;
     }
   }
 `;

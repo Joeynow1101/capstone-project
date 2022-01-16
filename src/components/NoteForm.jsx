@@ -6,10 +6,18 @@ function NoteForm({ setInputText, setNotes, notes, inputText }) {
     setInputText(event.target.value);
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setNotes([...notes, { text: inputText, completed: false, id: uuidv4() }]);
-    setInputText("");
+  const handleSubmit = () => {
+    if (inputText !== "") {
+      setNotes([...notes, { text: inputText, completed: false, id: uuidv4() }]);
+      setInputText("");
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit();
+    }
   };
 
   return (
@@ -20,6 +28,7 @@ function NoteForm({ setInputText, setNotes, notes, inputText }) {
           onChange={handleChange}
           type="text"
           placeholder="Neue Notiz..."
+          onKeyPress={handleKeyDown}
         />
         <Button onClick={handleSubmit} type="submit">
           +
@@ -54,7 +63,7 @@ const Button = styled.button`
   width: 2rem;
   height: 2rem;
   font-size: 1.5rem;
-  color: var(--primary-two);
+  color: var(--secondary-one);
   background-color: var(--primary-one);
   border: none;
   text-decoration: none;
