@@ -3,9 +3,11 @@ import styled from "styled-components";
 
 export default function Header({ titleText }) {
   return (
-    <StyledHeader>
-      <p>{titleText}</p>
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <p>{titleText}</p>
+      </StyledHeader>
+    </>
   );
 }
 

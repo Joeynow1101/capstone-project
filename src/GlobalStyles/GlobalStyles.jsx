@@ -5,26 +5,22 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-   
-}
+  }
 
 :root {
     --primary: #FDE8CE;
     --primary-one: #C8B49B;
+    --primary-one-opacity: #c8b49b21;
     --primary-two: #95836C;
     --secondary-one: #65553F;
     --secondary-two: #382B17;
-
 }
 
 body {
     background: var(--primary);
-    
     margin: 60px 0 80px 0;
     font-family: sans-serif;
-   
-    
-}
+ }
 `;
 
 export default GlobalStyles;
@@ -74,22 +70,22 @@ export const ProfileInput = styled.div`
 `;
 
 export const ProfileSelectInput = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-select {
-  font-size: 1.2rem;
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  border: none;
-  width: 100%;
-  height: 2rem;
-  border-radius: 8px;
-  background-color: var(--primary-one);
-  color: var(--secondary-two);
-  box-shadow: 6px 7px 23px -3px rgba(56, 43, 23, 0.2);
-}
+  select {
+    font-size: 1.2rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    border: none;
+    width: 100%;
+    height: 2rem;
+    border-radius: 8px;
+    background-color: var(--primary-one);
+    color: var(--secondary-two);
+    box-shadow: 6px 7px 23px -3px rgba(56, 43, 23, 0.2);
+  }
 `;
