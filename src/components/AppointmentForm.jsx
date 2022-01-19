@@ -44,7 +44,7 @@ export default function AppointmentForm() {
                 <img src={DeleteIcon} alt="" />
               </DeleteButton>
             </Card>
-
+            <hr />
             <Card>
               <h4>{result.date}</h4>
               <h4>{result.time}</h4>
@@ -84,6 +84,10 @@ const AppointmentCard = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+
+  hr {
+    border: 2px solid var(--primary-one-opacity);
+  }
 `;
 
 const FormInput = styled.input`
@@ -92,7 +96,7 @@ const FormInput = styled.input`
   border: 0;
   border-bottom: 1px solid var(--secondary-two);
   outline: 0;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   background: transparent;
   color: var(--secondary-one);
   margin: 0.5rem 0 1rem 0;
@@ -104,6 +108,7 @@ const FormInput = styled.input`
   }
   &::-webkit-calendar-picker-indicator {
     opacity: 0.6;
+    width: 2rem;
   }
 `;
 
