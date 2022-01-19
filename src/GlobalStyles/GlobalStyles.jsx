@@ -89,3 +89,15 @@ export const ProfileSelectInput = styled.div`
     box-shadow: 6px 7px 23px -3px rgba(56, 43, 23, 0.2);
   }
 `;
+
+export const DeleteButton = styled.button`
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary-one);
+  border: none;
+  img {
+    width: 20px;
+  }
+ 
+`;

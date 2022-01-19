@@ -17,7 +17,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   img {
-    cursor: pointer;
-    margin-top: 120px;
+    margin-top: 80px;
   }
 `;
