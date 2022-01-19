@@ -1,51 +1,58 @@
-import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
+import GlobalStyles, {
+  Button,
+  DeleteButton,
+} from "../GlobalStyles/GlobalStyles";
+import DeleteIcon from "../Images/delete.svg";
 import styled from "styled-components";
 import { useState } from "react";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 export default function AppointmentForm() {
-  
-  const defaultValues = {
-    title: "",
-    date: "",
-    time: "",
-  };
-  
   const { register, handleSubmit } = useForm();
-  const [result,setResult] = useState(defaultValues)
   const [results, setResults] = useState([]);
-  
-  console.log(result);
-  return (
-    <>
-      <Container onSubmit={handleSubmit((data) => setResults(data))}>
-        <FormInput
-          type="text"
-          placeholder="Titel"
-          {...register("title", { required: true })}
-        />
-        <FormInput
-          type="date"
-          placeholder="Datum"
-          {...register("date", { required: true })}
-        />
-        <FormInput
-          type="time"
-          placeholder="Uhrzeit"
-          {...register("time", { required: true })}
-        />
 
-        <Button type="submit">Termin erstellen</Button>
-        <AppointmentCard>
-          <span>{results.date}</span>
-          <hr />
-          <AppointmentCardBottom>
-            <p>{results.time}Uhr</p>
-            <p>{results.title}</p>
-          </AppointmentCardBottom>
-        </AppointmentCard>
-      </Container>
-    </>
+  const onDelete = (result) => {
+    setResults(results.filter((result) => result !== result));
+  };
+
+  const onSubmit = (data) => {
+    setResults([data, ...results]);
+  };
+
+  return (
+    <Container onSubmit={handleSubmit(onSubmit)}>
+      <FormInput
+        type="text"
+        placeholder="Titel"
+        {...register("title", { required: true })}
+      />
+      <FormInput type="date" {...register("date", { required: true })} />
+      <FormInput
+        type="time"
+        placeholder="Uhrzeit"
+        {...register("time", { required: true })}
+      />
+
+      <Button type="submit">Termin erstellen</Button>
+
+      {results.map((result, id) => {
+        return (
+          <AppointmentCard key={id}>
+            <Card>
+              <h3>{result.title}</h3>
+              <DeleteButton type="button" onClick={onDelete}>
+                <img src={DeleteIcon} alt="" />
+              </DeleteButton>
+            </Card>
+
+            <Card>
+              <h4>{result.date}</h4>
+              <h4>{result.time}</h4>
+            </Card>
+          </AppointmentCard>
+        );
+      })}
+    </Container>
   );
 }
 
@@ -58,14 +65,16 @@ const Container = styled.form`
   border-radius: 10px;
   background-color: var(--secondary);
 
-  grid-row-gap: 1rem;
+  grid-row-gap: 0.5rem;
   padding: 1rem;
 `;
 
 const AppointmentCard = styled.div`
   background-color: var(--primary-one-opacity);
-
-  margin-bottom: 1rem;
+  font-family: "CaveatBrush";
+  font-size: 1.4rem;
+  color: var(--secondary-one);
+  margin-top: 1rem;
   padding: 0.5rem;
   box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.07),
     6.7px 6.7px 5.3px rgba(0, 0, 0, 0.05),
@@ -75,31 +84,22 @@ const AppointmentCard = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-
-  span {
-    color: var(--secondary-one);
-  }
-
-  hr {
-    border-bottom: 1px solid var(--secondary-two);
-    opacity: 0.3;
-  }
 `;
 
 const FormInput = styled.input`
   font-family: "CaveatBrush";
-  width: 18rem;
+  width: 16rem;
   border: 0;
   border-bottom: 1px solid var(--secondary-two);
   outline: 0;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   background: transparent;
   color: var(--secondary-one);
   margin: 0.5rem 0 1rem 0;
 
   &::placeholder {
     font-family: "CaveatBrush";
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: var(--secondary-one);
   }
   &::-webkit-calendar-picker-indicator {
@@ -107,9 +107,15 @@ const FormInput = styled.input`
   }
 `;
 
-const AppointmentCardBottom = styled.div`
+const Card = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin: 0.5rem;
   color: var(--secondary-one);
+  min-width: 30%;
+  word-break: break-all;
+
+  h3 {
+    color: var(--secondary-two);
+  }
 `;

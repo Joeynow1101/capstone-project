@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import DeleteIcon from "../Images/delete.svg";
+import GlobalStyles, {
+DeleteButton,
+} from "../GlobalStyles/GlobalStyles";
 
 function Note({ text, notes, setNotes, note }) {
   const deleteHandler = () => {
@@ -10,9 +13,9 @@ function Note({ text, notes, setNotes, note }) {
     <NoteBox>
       <span>{text}</span>
       <NoteFooter>
-        <button onClick={deleteHandler}>
-          <img src={DeleteIcon} alt="" />
-        </button>
+        <DeleteButton onClick={deleteHandler}>
+          <img src={DeleteIcon} alt="DeleteIcon" />
+        </DeleteButton>
       </NoteFooter>
     </NoteBox>
   );
@@ -43,16 +46,5 @@ const NoteBox = styled.div`
 const NoteFooter = styled.div`
   display: flex;
   justify-content: flex-end;
-
-  button {
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-
-    background-color: var(--primary-one);
-    border: none;
-    img {
-      width: 16px;
-    }
-  }
 `;
+
