@@ -1,13 +1,14 @@
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 
-function Feeding() {
+function Vaccination() {
   return (
     <>
-      <Header titleText={"Futterplan"} />
+      <Header titleText={"Impfungen"} />
+
       <Navbar />
     </>
   );
 }
 
-export default Feeding;
+export default Vaccination;
