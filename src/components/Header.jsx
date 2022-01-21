@@ -5,7 +5,7 @@ export default function Header({ titleText }) {
   return (
     <>
       <StyledHeader>
-        <p>{titleText}</p>
+        <h1>{titleText}</h1>
       </StyledHeader>
     </>
   );
@@ -13,7 +13,7 @@ export default function Header({ titleText }) {
 
 const StyledHeader = styled.header`
   display: flex;
-  align-items: center;
+
   justify-content: center;
   z-index: 10;
   width: 100%;
@@ -22,10 +22,13 @@ const StyledHeader = styled.header`
   font-size: 2.25rem;
   background: linear-gradient(
     180deg,
-    rgba(253, 232, 206, 1) 80%,
+    rgba(253, 232, 206, 1) 70%,
     rgba(255, 255, 255, 0) 100%
   );
   color: var(--secondary-two);
   position: fixed;
   top: 0;
+  h1{
+    font-size: 2.5rem;
+  }
 `;

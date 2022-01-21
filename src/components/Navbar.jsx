@@ -80,27 +80,28 @@ const Nav = styled.nav`
   height: 70px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+
   position: fixed;
   bottom: 0;
   background: var(--primary);
   background: linear-gradient(
     0deg,
-    rgba(253, 232, 206, 1) 80%,
+    rgba(253, 232, 206, 1) 70%,
     rgba(255, 255, 255, 0) 100%
   );
 
   a svg {
-    width: 35px;
-    height: 35px;
+    width: 33px;
+    height: 33px;
+    margin-top: 1.6rem;
     filter: drop-shadow(3px 3px 4px rgba(28, 28, 25, 0.256));
     path {
       fill: var(--primary-two);
     }
   }
   a.active svg {
-    width: 38px;
-    height: 38px;
+    width: 35px;
+    height: 35px;
 
     path {
       fill: var(--secondary-two);

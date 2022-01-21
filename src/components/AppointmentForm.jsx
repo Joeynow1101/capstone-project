@@ -26,7 +26,7 @@ export default function AppointmentForm() {
         placeholder="Titel"
         {...register("title", { required: true })}
       />
-      <FormInput type="date" {...register("date", { required: true })} />
+      <FormInput type="date" placeholder="Datum" {...register("date", { required: true })} />
       <FormInput
         type="time"
         placeholder="Uhrzeit"

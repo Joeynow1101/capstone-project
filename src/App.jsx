@@ -5,8 +5,8 @@ import Appointment from "./Pages/Appointment";
 import Notes from "./Pages/Notes";
 import Profile from "./Pages/Profile";
 import Season from "./Pages/Season";
-import Vaccination from "./Pages/Vaccination"
-import Deworming from "./Pages/Deworming"
+import Vaccination from "./Pages/Vaccination";
+import Deworming from "./Pages/Deworming";
 
 function App() {
   return (
