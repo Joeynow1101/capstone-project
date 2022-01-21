@@ -9,7 +9,7 @@ function Season() {
       <Header titleText={"Läufigkeit"} />
       <Container>
         <h2>Beginn der Läufigkeit</h2>
-        <input type="date" placeholder="Titel" />
+        <input type="date" placeholder="Titel" onfocus="(this.type='date')"/>
         <SeasonsData />
       </Container>
       <Navbar />
