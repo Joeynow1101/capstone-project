@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import BackgroundMain from "../Images/BackgroundMain.png";
 
 const GlobalStyles = createGlobalStyle`
 *{
@@ -10,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
 :root {
     --primary: #FDE8CE;
     --primary-one: #C8B49B;
-    --primary-one-opacity: #c8b49b21;
+    --primary-one-opacity: #fde8cec6;
     --primary-two: #95836C;
     --secondary-one: #65553F;
     --secondary-two: #382B17;
@@ -18,9 +19,10 @@ const GlobalStyles = createGlobalStyle`
 
 body {
     background: var(--primary);
-    margin: 60px 0 80px 0;
+    margin: 3.5rem 0 3.5rem 0;
     font-family: sans-serif;
- }
+    background-image: url(${BackgroundMain});
+  }
 `;
 
 export default GlobalStyles;
@@ -99,5 +101,4 @@ export const DeleteButton = styled.button`
   img {
     width: 20px;
   }
- 
 `;
