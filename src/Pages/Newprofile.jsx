@@ -2,11 +2,7 @@ import ProfileEdit from "../components/ProfileEdit";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 
-
-const CreateProfile = () => {
-  
-
- 
+const Newprofile = () => {
   return (
     <>
       <Header titleText={"Profil"} />
@@ -17,4 +13,4 @@ const CreateProfile = () => {
   );
 };
 
-export default CreateProfile;
+export default Newprofile;

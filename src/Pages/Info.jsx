@@ -17,17 +17,6 @@ function Info() {
       <Link to="deworming">Entwurmung</Link>
 
       <Outlet />
-      {/* <Container>
-        <NavLink to="/Season">
-          <Button>Läufigkeit</Button>
-        </NavLink>
-        <NavLink to="/Deworming">
-          <Button>Entwurmung</Button>
-        </NavLink>
-        <NavLink to="/Vaccination">
-          <Button>Impfungen</Button>
-        </NavLink>
-      </Container> */}
 
       <Navbar />
     </>

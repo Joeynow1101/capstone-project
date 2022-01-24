@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Container>
         <img src={Logo} alt="Logo" />
-        <NavLink to="/create">
+        <NavLink to="newprofile">
           <Button>Start</Button>
         </NavLink>
       </Container>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
+
 import styled from "styled-components";
 import DogAvatar from "../Images/DogAvatar.png";
 import { saveToLocal, loadFromLocal } from "../lib/localStorage";
@@ -32,7 +32,7 @@ const ProfileForm = () => {
             <p>{user.weight} Kg</p>
             <p>Aktivität:</p>
             <p>{user.activity}</p>
-            <Button>edit</Button>
+            
           </InfoBox>
         </article>
       ))}
