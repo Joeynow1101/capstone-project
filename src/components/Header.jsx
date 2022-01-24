@@ -19,7 +19,7 @@ const StyledHeader = styled.header`
   width: 100%;
   height: 70px;
   font-family: CaveatBrush;
-  font-size: 2.25rem;
+
   background: linear-gradient(
     180deg,
     rgba(253, 232, 206, 1) 70%,
@@ -28,7 +28,8 @@ const StyledHeader = styled.header`
   color: var(--secondary-two);
   position: fixed;
   top: 0;
-  h1{
-    font-size: 2.5rem;
+  h1 {
+    font-size: 2.2rem;
+    margin-top:0.5rem
   }
 `;

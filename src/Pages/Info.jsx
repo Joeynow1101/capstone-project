@@ -1,15 +1,23 @@
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import styled from "styled-components";
-import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
-styled;
+
+import { Link, Outlet } from "react-router-dom";
 
 function Info() {
   return (
     <>
       <Header titleText={"Infos"} />
-      <Container>
+
+      <Link to="season">Läufigkeit</Link>
+
+      <Link to="vaccination">Impfungen</Link>
+
+      <Link to="deworming">Entwurmung</Link>
+
+      <Outlet />
+      {/* <Container>
         <NavLink to="/Season">
           <Button>Läufigkeit</Button>
         </NavLink>
@@ -19,7 +27,8 @@ function Info() {
         <NavLink to="/Vaccination">
           <Button>Impfungen</Button>
         </NavLink>
-      </Container>
+      </Container> */}
+
       <Navbar />
     </>
   );

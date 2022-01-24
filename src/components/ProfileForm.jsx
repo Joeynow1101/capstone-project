@@ -1,104 +1,78 @@
-import GlobalStyles, {
-  Button,
-  ProfileInput,
-  ProfileSelectInput,
-} from "../GlobalStyles/GlobalStyles";
+import { useEffect, useState } from "react";
+import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
 import styled from "styled-components";
-import { useForm } from "react-hook-form";
+import DogAvatar from "../Images/DogAvatar.png";
+import { saveToLocal, loadFromLocal } from "../lib/localStorage";
 
-const FormValues = {
-  name: String,
-  breed: String,
-  weight: String,
-  age: String,
-  activity: String,
-  gender: String,
-};
+const ProfileForm = () => {
+  const localStorageUsers = loadFromLocal("_users");
 
-export default function ProfileForm() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [users, setUsers] = useState(localStorageUsers ?? []);
+
+  useEffect(() => {
+    saveToLocal("_users", users);
+  }, [users]);
+
+  const addUser = (user) => setUsers([...users, user]);
 
   return (
-    <>
-      <Container onSubmit={handleSubmit(onSubmit)}>
-        <ProfileInput>
-          <input type="text" placeholder="Name" {...register("Name")} />
-        </ProfileInput>
-        <ProfileInput>
-          <input type="text" placeholder="Rasse" {...register("breed")} />
-        </ProfileInput>
-        <ProfileInput>
-          <input type="text" placeholder="z.B 15 Kg" {...register("weight")} />
-        </ProfileInput>
-        <ProfileSelectInput>
-          <select {...register("age")}>
-            <option hidden>Alter</option>
-            <option value="Welpe">Welpe</option>
-            <option value="Junghund">Junghund</option>
-            <option value="Ausgewachsen">Ausgewachsen</option>
-          </select>
-        </ProfileSelectInput>
-        <ProfileSelectInput>
-          <select {...register("activity")}>
-            <option hidden>Aktivität</option>
-            <option value="ruhig">ruhig</option>
-            <option value="normal">normal</option>
-            <option value="aktiv">aktiv</option>
-          </select>
-        </ProfileSelectInput>
-        <ProfileRadioInput>
-          <RadioButton
-            type="radio"
-            name="gender"
-            value="male"
-            checked
-            {...register("gender")}
-          />
-          <label htmlFor="male">Rüde</label>
-          <RadioButton
-            type="radio"
-            name="gender"
-            value="female"
-            checked
-            {...register("gender")}
-          />
-          <label htmlFor="female">Hündin</label>
-        </ProfileRadioInput>
-        <Button type="submit">Profil erstellen</Button>
-      </Container>
-    </>
+    <form onChange={addUser}>
+      {users.map((user, index) => (
+        <article key={index}>
+          <ImgBox>
+            <Avatar src={DogAvatar} alt="Avatar" />
+            <h2>{user.name}</h2>
+          </ImgBox>
+          <InfoBox>
+            <p>Rasse:</p>
+            <p>{user.breed}</p>
+            <p>Alter:</p>
+            <p>{user.age}</p>
+            <p>Gewicht:</p>
+            <p>{user.weight} Kg</p>
+            <p>Aktivität:</p>
+            <p>{user.activity}</p>
+            <Button>edit</Button>
+          </InfoBox>
+        </article>
+      ))}
+    </form>
   );
-}
+};
 
-const Container = styled.form`
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  margin: auto;
-  width: 20rem;
-  border-radius: 10px;
-  background-color: var(--secondary);
-  grid-template-rows: repeat(6, 1fr);
-  grid-row-gap: 1.5rem;
-  padding: 1rem;
-`;
+export default ProfileForm;
 
-const ProfileRadioInput = styled.div`
+const ImgBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
+  h2 {
+    font-family: "CaveatBrush";
+    font-size: 2.5rem;
+    color: var(--secondary-one);
+    margin: 1.5rem;
+  }
 `;
-const RadioButton = styled.input`
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 1px solid darkgray;
+const Avatar = styled.img`
+  width: 10rem;
   border-radius: 50%;
-  outline: none;
-  :checked {
-    width: 20px;
-    height: 20px;
-    background-color: var(--primary-two);
+  border: 1px solid var(--primary-one);
+  margin: 0.5rem;
+`;
+
+const InfoBox = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 2rem;
+
+  align-items: start;
+  max-width: 80%;
+  margin: auto;
+
+  p {
+    color: var(--secondary-one);
+    font-size: 1.5rem;
   }
 `;

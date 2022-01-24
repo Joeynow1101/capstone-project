@@ -76,11 +76,10 @@ function Navbar() {
 export default Navbar;
 
 const Nav = styled.nav`
-  width: 100%;
+   width: 100%;
   height: 70px;
   display: flex;
   justify-content: space-around;
-
   position: fixed;
   bottom: 0;
   background: var(--primary);
@@ -89,7 +88,6 @@ const Nav = styled.nav`
     rgba(253, 232, 206, 1) 70%,
     rgba(255, 255, 255, 0) 100%
   );
-
   a svg {
     width: 33px;
     height: 33px;
@@ -102,7 +100,6 @@ const Nav = styled.nav`
   a.active svg {
     width: 35px;
     height: 35px;
-
     path {
       fill: var(--secondary-two);
     }
