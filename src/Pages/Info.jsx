@@ -2,22 +2,27 @@ import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import { NavLink, Route } from "react-router-dom";
 import styled from "styled-components";
+import GlobalStyles, {
+  Button,
+  } from "../GlobalStyles/GlobalStyles";
 
-import { Link, Outlet } from "react-router-dom";
+
 
 function Info() {
   return (
     <>
       <Header titleText={"Infos"} />
-
-      <Link to="season">Läufigkeit</Link>
-
-      <Link to="vaccination">Impfungen</Link>
-
-      <Link to="deworming">Entwurmung</Link>
-
-      <Outlet />
-
+      <Container>
+        <NavLink to="/season">
+          <Button>Läufigkeit</Button>
+        </NavLink>
+        <NavLink to="/Deworming">
+          <Button>Entwurmung</Button>
+        </NavLink>
+        <NavLink to="/Vaccination">
+          <Button>Impfungen</Button>
+        </NavLink>
+      </Container>
       <Navbar />
     </>
   );
