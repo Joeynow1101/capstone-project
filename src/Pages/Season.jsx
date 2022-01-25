@@ -1,6 +1,8 @@
 import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import SeasonsData from "../components/SeasonsData";
+
 
 function Season() {
   return (
@@ -11,6 +13,7 @@ function Season() {
         <input type="date" placeholder="Titel" />
         <SeasonsData />
       </Container>
+      <Navbar />
     </>
   );
 }

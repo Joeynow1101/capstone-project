@@ -4,7 +4,6 @@ import GlobalStyles, {
   ProfileSelectInput,
 } from "../GlobalStyles/GlobalStyles";
 import styled from "styled-components";
-
 import { useState, useEffect } from "react";
 import { saveToLocal, loadFromLocal } from "../lib/localStorage";
 import { useNavigate } from "react-router-dom";

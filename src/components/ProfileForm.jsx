@@ -32,7 +32,6 @@ const ProfileForm = () => {
             <p>{user.weight} Kg</p>
             <p>Aktivität:</p>
             <p>{user.activity}</p>
-            
           </InfoBox>
         </article>
       ))}
@@ -51,14 +50,13 @@ const ImgBox = styled.div`
     font-family: "CaveatBrush";
     font-size: 2.5rem;
     color: var(--secondary-one);
-    margin: 1.5rem;
   }
 `;
 const Avatar = styled.img`
   width: 10rem;
   border-radius: 50%;
   border: 1px solid var(--primary-one);
-  margin: 0.5rem;
+  margin: 2rem;
 `;
 
 const InfoBox = styled.div`
@@ -70,6 +68,7 @@ const InfoBox = styled.div`
   align-items: start;
   max-width: 80%;
   margin: auto;
+  margin-top: 2rem;
 
   p {
     color: var(--secondary-one);
