@@ -17,11 +17,10 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="newprofile" element={<ProfileEdit />} />
 
-        <Route path="info/*" element={<Info />}>
-          <Route path="season" element={<Season />} />
-          <Route path="vaccination" element={<Vaccination />} />
-          <Route path="deworming" element={<Deworming />} />
-        </Route>
+        <Route path="info" element={<Info />} />
+        <Route path="season" element={<Season />} />
+        <Route path="vaccination" element={<Vaccination />} />
+        <Route path="eworming" element={<Deworming />} />
 
         <Route path="appointment" element={<Appointment />} />
         <Route path="notes" element={<Notes />} />
