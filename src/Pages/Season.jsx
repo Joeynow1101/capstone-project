@@ -1,7 +1,8 @@
-import Navbar from "../components/Navbar";
 import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import SeasonsData from "../components/SeasonsData";
+
 
 function Season() {
   return (
@@ -9,7 +10,7 @@ function Season() {
       <Header titleText={"Läufigkeit"} />
       <Container>
         <h2>Beginn der Läufigkeit</h2>
-        <input type="date" placeholder="Titel" onfocus="(this.type='date')"/>
+        <input type="date" placeholder="Titel" />
         <SeasonsData />
       </Container>
       <Navbar />

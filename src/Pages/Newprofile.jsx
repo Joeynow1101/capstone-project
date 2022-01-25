@@ -1,20 +1,16 @@
+import ProfileEdit from "../components/ProfileEdit";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import ProfileForm from "../components/ProfileForm";
 
-
-
-
-function Profile() {
+const Newprofile = () => {
   return (
     <>
       <Header titleText={"Profil"} />
 
-      <ProfileForm></ProfileForm>
-
+      <ProfileEdit></ProfileEdit>
       <Navbar />
     </>
   );
-}
+};
 
-export default Profile;
+export default Newprofile;

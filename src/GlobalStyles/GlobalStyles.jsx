@@ -31,21 +31,14 @@ export const Button = styled.button`
   margin: auto;
   height: 45px;
   width: 145px;
-  background-color: var(--primary-one);
+  background-color: var(--secondary-one);
   border-radius: 8px;
   border: none;
   text-decoration: none;
   font-size: 1rem;
-  color: var(--secondary-two);
+  color: #f7f7f7;
 
-  box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
-    inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
-    inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
-  &:active {
-    box-shadow: inset 0 0.6em 2em -0.3em rgba(0, 0, 0, 0.15),
-      inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
-  }
-  box-shadow: 6px 7px 23px -3px rgba(56, 43, 23, 0.2);
+  
 `;
 
 export const ProfileInput = styled.div`

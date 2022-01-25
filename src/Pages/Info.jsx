@@ -1,16 +1,19 @@
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import styled from "styled-components";
-import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
-styled;
+import GlobalStyles, {
+  Button,
+  } from "../GlobalStyles/GlobalStyles";
+
+
 
 function Info() {
   return (
     <>
       <Header titleText={"Infos"} />
       <Container>
-        <NavLink to="/Season">
+        <NavLink to="/season">
           <Button>Läufigkeit</Button>
         </NavLink>
         <NavLink to="/Deworming">
