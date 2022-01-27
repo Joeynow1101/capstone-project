@@ -9,40 +9,46 @@ function VaccinationList() {
     hepatitis: {
       value: "Hepatitis",
       checked: false,
+      date: "",
     },
     leptospirose: {
       value: "Leptospirose",
       checked: false,
+      date: "",
     },
 
     parainfluenza: {
       value: "Parainfluenza",
       checked: false,
+      date: "",
     },
 
     pavovirose: {
       value: "Pavovirose",
       checked: false,
+      date: "",
     },
 
     staupe: {
       value: "Staupe",
       checked: false,
+      date: "",
     },
 
     tollwut: {
       value: "Tollwut",
       checked: false,
+      date: "",
     },
   };
-
   const localStorageVaccinations = loadFromLocal("_vaccinations");
   const [vaccination, setVaccination] = useState(
     localStorageVaccinations ?? initialVaccinations
   );
 
   const vaccinationKeys = Object.keys(initialVaccinations);
-  const [showMore, setShowMore] = useState(false);
+  const [showMyVaccinations, setShowMyVaccinations] = useState(false);
+  const [showDate, setShowDate] = useState(false);
 
   const handleChange = (event) => {
     let inputValue = event.target.checked;
@@ -53,13 +59,24 @@ function VaccinationList() {
     });
   };
 
+  const handleChangeDate = (vaccinationKey, date) => {
+    setVaccination({
+      ...vaccination,
+      [vaccinationKey]: { ...vaccination[vaccinationKey], date },
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     saveToLocal("_vaccinations", vaccination);
   };
 
-  function handleMoreClick() {
-    setShowMore(!showMore);
+  function handleMyVaccinations() {
+    setShowMyVaccinations(!showMyVaccinations);
+  }
+
+  function handleDateClick() {
+    setShowDate(!showDate);
   }
 
   return (
@@ -74,23 +91,35 @@ function VaccinationList() {
         </span>
       </TextBox>
       <ButtonBox>
-        <Button onClick={handleMoreClick}>
-          {showMore ? "schließen" : "Meine Impfungen"}
+        <Button onClick={handleMyVaccinations}>
+          {showMyVaccinations ? "schließen" : "Meine Impfungen"}
         </Button>
       </ButtonBox>
-      {showMore && (
+      {showMyVaccinations && (
         <Container onSubmit={handleSubmit}>
           {vaccinationKeys.map((key, index) => (
-            <label key={index}>
-              <input
-                type="checkbox"
-                value={vaccination[key]["value"]}
-                name="vaccination"
-                checked={vaccination[key]["checked"]}
-                onChange={handleChange}
-              />
-              {vaccination[key]["value"]}
-            </label>
+            <>
+              <label key={index}>
+                <TextInput
+                  type="checkbox"
+                  value={vaccination[key]["value"]}
+                  name="vaccination"
+                  checked={vaccination[key]["checked"]}
+                  onChange={handleChange}
+                  onClick={handleDateClick}
+                ></TextInput>
+                {vaccination[key]["value"]}
+                {vaccination[key]["checked"] && (
+                  <DateInput
+                    type="date"
+                    onChange={(event) => {
+                      handleChangeDate(key, event.target.value);
+                    }}
+                    value={vaccination[key]["date"]}
+                  />
+                )}
+              </label>
+            </>
           ))}
           <ButtonBox>
             <Button type="submit">Speichern</Button>
@@ -111,13 +140,6 @@ const Container = styled.form`
   flex-direction: column;
   gap: 2.7rem;
 
-  input {
-    width: 20px;
-    height: 20px;
-    margin-right: 1rem;
-    accent-color: var(--primary-one);
-  }
-
   label {
     margin-left: 6rem;
     font-size: 1.7rem;
@@ -126,6 +148,14 @@ const Container = styled.form`
     color: var(--secondary-one);
   }
 `;
+
+const TextInput = styled.input`
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  accent-color: var(--primary-one);
+`;
+
 const ButtonBox = styled.div`
   display: flex;
   margin-bottom: 2rem;
@@ -151,4 +181,27 @@ const TextBox = styled.div`
   font-size: 1.1rem;
   font-weight: 300;
   color: var(--secondary-one);
+`;
+
+const DateInput = styled.input`
+  margin: auto;
+  font-family: "CaveatBrush";
+  width: 12rem;
+  border: 0;
+  border-bottom: 1px solid var(--secondary-two);
+  outline: 0;
+  font-size: 1.9rem;
+  background: transparent;
+  color: var(--secondary-one);
+  margin-top: 1rem;
+
+  &::placeholder {
+    font-family: "CaveatBrush";
+    font-size: 1.7rem;
+    color: var(--secondary-one);
+  }
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+    width: 2rem;
+  }
 `;
