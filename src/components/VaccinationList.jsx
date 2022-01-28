@@ -48,6 +48,7 @@ function VaccinationList() {
 
   const vaccinationKeys = Object.keys(initialVaccinations);
   const [showMyVaccinations, setShowMyVaccinations] = useState(false);
+
   const [showDate, setShowDate] = useState(false);
 
   const handleChange = (event) => {
@@ -82,7 +83,7 @@ function VaccinationList() {
   return (
     <>
       <TextBox>
-        <img src={Vaccination} alt="" />
+        <img src={Vaccination} alt="DogPicture" />
         <span>
           Gefährliche Infektionskrankheiten sind bei Hunden nach wie vor weit
           verbreitet. Impfungen ermöglichen es, deinen Liebling vor diesen
@@ -98,28 +99,26 @@ function VaccinationList() {
       {showMyVaccinations && (
         <Container onSubmit={handleSubmit}>
           {vaccinationKeys.map((key, index) => (
-            <>
-              <label key={index}>
-                <TextInput
-                  type="checkbox"
-                  value={vaccination[key]["value"]}
-                  name="vaccination"
-                  checked={vaccination[key]["checked"]}
-                  onChange={handleChange}
-                  onClick={handleDateClick}
-                ></TextInput>
-                {vaccination[key]["value"]}
-                {vaccination[key]["checked"] && (
-                  <DateInput
-                    type="date"
-                    onChange={(event) => {
-                      handleChangeDate(key, event.target.value);
-                    }}
-                    value={vaccination[key]["date"]}
-                  />
-                )}
-              </label>
-            </>
+            <label key={index}>
+              <TextInput
+                type="checkbox"
+                value={vaccination[key]["value"]}
+                name="vaccination"
+                checked={vaccination[key]["checked"]}
+                onChange={handleChange}
+                onClick={handleDateClick}
+              ></TextInput>
+              {vaccination[key]["value"]}
+              {vaccination[key]["checked"] && (
+                <DateInput
+                  type="date"
+                  onChange={(event) => {
+                    handleChangeDate(key, event.target.value);
+                  }}
+                  value={vaccination[key]["date"]}
+                />
+              )}
+            </label>
           ))}
           <ButtonBox>
             <Button type="submit">Speichern</Button>
