@@ -1,25 +1,21 @@
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import GlobalStyles, {
-  Button,
-  } from "../GlobalStyles/GlobalStyles";
-
-
+import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
 
 function Info() {
   return (
     <>
       <Header titleText={"Infos"} />
       <Container>
-        <NavLink to="/season">
+        <NavLink to="season">
           <Button>Läufigkeit</Button>
         </NavLink>
-        <NavLink to="/Deworming">
+        <NavLink to="deworming">
           <Button>Entwurmung</Button>
         </NavLink>
-        <NavLink to="/Vaccination">
+        <NavLink to="vaccination">
           <Button>Impfungen</Button>
         </NavLink>
       </Container>
@@ -35,10 +31,11 @@ const Container = styled.div`
   justify-content: center;
   align-content: center;
   margin: auto;
-  width: 20rem;
-  border-radius: 10px;
-  background-color: var(--secondary);
   grid-row-gap: 2rem;
-  padding: 1rem;
-  margin-top: 200px;
+  height: 82vh;
+
+  button {
+    width: 15rem;
+    height: 5rem;
+  }
 `;

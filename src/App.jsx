@@ -16,12 +16,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="profile" element={<Profile />} />
         <Route path="newprofile" element={<ProfileEdit />} />
-
-        <Route path="info" element={<Info />} />
-        <Route path="season" element={<Season />} />
-        <Route path="vaccination" element={<Vaccination />} />
-        <Route path="deworming" element={<Deworming />} />
-
+        <Route path="info" element={<Info />}></Route>
+        <Route path="info/season" element={<Season />}></Route>
+        <Route path="info/deworming" element={<Deworming />}></Route>
+        <Route path="info/vaccination" element={<Vaccination />}></Route>
         <Route path="appointment" element={<Appointment />} />
         <Route path="notes" element={<Notes />} />
         <Route path="*" element={<h2>Page not found</h2>} />
