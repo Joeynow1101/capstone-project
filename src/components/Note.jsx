@@ -27,12 +27,11 @@ const NoteBox = styled.div`
   background-color: var(--primary-one-opacity);
   margin-bottom: 1rem;
   padding: 0.5rem;
-  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.07),
-    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.05),
-    12.5px 12.5px 10px rgba(0, 0, 0, 0.01),
-    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.01),
-    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.01);
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
   border-radius: 10px;
+  border: 1px solid #3e3e3e18;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

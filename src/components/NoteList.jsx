@@ -26,6 +26,7 @@ const NewNoteList = styled.div`
   font-family: "CaveatBrush";
   font-size: 1.5rem;
   margin: 1rem;
+  
 
   ul {
     min-width: 30%;

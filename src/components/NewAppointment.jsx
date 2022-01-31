@@ -2,10 +2,8 @@ import GlobalStyles, {
   Button,
   DeleteButton,
 } from "../GlobalStyles/GlobalStyles";
-import DeleteIcon from "../Images/delete.svg";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-
 import { saveToLocal, loadFromLocal } from "../lib/localStorage";
 
 export default function NewAppointment() {
@@ -14,7 +12,6 @@ export default function NewAppointment() {
     date: "",
     time: "",
   };
-
   const [appointment, setAppointment] = useState(initialAppointments);
   const localStorageProducts = loadFromLocal("_appointments");
   const [appointments, setAppointments] = useState(localStorageProducts ?? []);
@@ -23,10 +20,11 @@ export default function NewAppointment() {
     saveToLocal("_appointments", appointments);
   }, [appointments]);
 
-  const handleDelete = (id) => {
-    setAppointments(
-      appointments.filter((appointment) => appointment.id !== id)
+  const handleDelete = (deleteAppointment) => {
+    const newAppointmentList = appointments.filter(
+      (appointment) => appointment !== deleteAppointment
     );
+    setAppointments(newAppointmentList);
   };
 
   const handleChange = (event) => {
@@ -52,6 +50,7 @@ export default function NewAppointment() {
           placeholder="Titel"
           onChange={handleChange}
           value={appointment.title}
+          required={true}
         ></AppointmentForm>
         <AppointmentForm
           type="date"
@@ -59,6 +58,7 @@ export default function NewAppointment() {
           placeholder="Datum"
           onChange={handleChange}
           value={appointment.date}
+          required={true}
         ></AppointmentForm>
         <AppointmentForm
           type="time"
@@ -66,6 +66,7 @@ export default function NewAppointment() {
           placeholder="Uhrzeit"
           onChange={handleChange}
           value={appointment.time}
+          required={true}
         ></AppointmentForm>
 
         <Button type="submit">Termin erstellen</Button>
@@ -79,18 +80,18 @@ export default function NewAppointment() {
         </Button>
       </Form>
 
-      <Card>
-        {appointments.map((appointment, id) => (
-          <CardBox key={id}>
-            <div>
-              <h3>{appointment.title}</h3>
-              <p>{appointment.date}</p>
-              <p> {appointment.time}</p>
-            </div>
-            <button onClick={handleDelete}>löschen</button>
-          </CardBox>
-        ))}
-      </Card>
+      {appointments.map((appointment, index) => (
+        <CardBox key={index}>
+          <div>
+            <h3>{appointment.title}</h3>
+            <p>{appointment.date}</p>
+            <p> {appointment.time}</p>
+          </div>
+          <DeleteButton onClick={() => handleDelete(appointment)}>
+            &#10004;
+          </DeleteButton>
+        </CardBox>
+      ))}
     </>
   );
 }
@@ -103,25 +104,36 @@ const Form = styled.form`
   width: 20rem;
   border-radius: 10px;
   background-color: var(--secondary);
-
   grid-row-gap: 0.5rem;
   padding: 1rem;
+  button {
+    margin-bottom: 1rem;
+  }
 `;
 
 const CardBox = styled.div`
+  position: relative;
   background-color: var(--primary-one-opacity);
   font-family: "CaveatBrush";
   font-size: 1.4rem;
   color: var(--secondary-one);
   margin-top: 1rem;
   padding: 0.5rem;
-
-  border-radius: 10px;
+  width: 80%;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
+  margin: auto;
+  border: 1px solid #3e3e3e18;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  margin-bottom: 1rem;
 
-  hr {
-    border: 2px solid var(--primary-one-opacity);
+  button {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
   }
 `;
 
@@ -144,18 +156,5 @@ const AppointmentForm = styled.input`
   &::-webkit-calendar-picker-indicator {
     opacity: 0.6;
     width: 2rem;
-  }
-`;
-
-const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem;
-  color: var(--secondary-one);
-  min-width: 30%;
-  word-break: break-all;
-
-  h3 {
-    color: var(--secondary-two);
   }
 `;
