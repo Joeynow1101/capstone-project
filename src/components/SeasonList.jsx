@@ -39,11 +39,13 @@ const Container = styled.div`
   grid-gap: 0.5rem;
   padding: 1rem;
   color: var(--secondary-one);
+
   img {
     width: 21.5rem;
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -6px #777;
+    margin: auto;
   }
 
   input {
