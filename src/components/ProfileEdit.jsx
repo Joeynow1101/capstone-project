@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { saveToLocal, loadFromLocal } from "../lib/localStorage";
 import { useNavigate } from "react-router-dom";
+import AvatarChanger from "../components/AvatarChanger";
 
 export default function ProfileEdit() {
   const initialUser = {
@@ -41,6 +42,7 @@ export default function ProfileEdit() {
   return (
     <>
       <Form onSubmit={handleSubmit}>
+        <AvatarChanger></AvatarChanger>
         <FormInput
           type="text"
           placeholder="Name"
@@ -133,11 +135,10 @@ export default function ProfileEdit() {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
+  height: 100%;
   margin: auto;
   align-items: center;
-  gap: 2rem;
-
   
 `;
 
@@ -149,7 +150,7 @@ const RadioBox = styled.div`
   display: flex;
   align-items: center;
   gap: 3rem;
-
+  accent-color: var(--primary-two);
   label {
   }
   input {
@@ -205,5 +206,6 @@ const RadioButton = styled.input`
     width: 20px;
     height: 20px;
     background-color: var(--primary-two);
+    
   }
 `;
