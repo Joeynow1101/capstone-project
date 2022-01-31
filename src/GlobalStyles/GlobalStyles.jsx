@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
 
 body {
     background: var(--primary);
-    margin: 3.5rem 0 3.5rem 0;
+    margin: 3.5rem 0 5rem 0;
     font-family: sans-serif;
     background-image: url(${BackgroundMain});
   }
@@ -31,14 +31,19 @@ export const Button = styled.button`
   margin: auto;
   height: 45px;
   width: 145px;
-  background-color: var(--secondary-one);
-  border-radius: 8px;
   border: none;
-  text-decoration: none;
+  padding: 0.2rem;
   font-size: 1rem;
+  border-radius: 1rem;
+  background-color: var(--secondary-one);
   color: #f7f7f7;
+  box-shadow: 0 0.3rem var(--primary-two);
 
-  
+  :active {
+    color: white;
+    box-shadow: 0 0.2rem #dfd9d9;
+    transform: translateY(0.2rem);
+  }
 `;
 
 export const ProfileInput = styled.div`
