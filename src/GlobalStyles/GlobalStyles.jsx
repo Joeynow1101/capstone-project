@@ -96,7 +96,5 @@ export const DeleteButton = styled.button`
   height: 36px;
   background-color: var(--primary-one);
   border: none;
-  img {
-    width: 20px;
-  }
+  color: var(--secondary-one);
 `;
