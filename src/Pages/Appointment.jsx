@@ -1,12 +1,12 @@
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import AppointmentForm from "../components/AppointmentForm"
+import NewAppointment from "../components/NewAppointment";
 
 function Appointment() {
   return (
     <>
       <Header titleText={"Termine"} />
-      <AppointmentForm></AppointmentForm>
+      <NewAppointment></NewAppointment>
       <Navbar />
     </>
   );

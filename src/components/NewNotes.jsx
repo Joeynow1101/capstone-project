@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
-
 import NoteForm from "./NoteForm";
 import NoteList from "./NoteList";
+import { saveToLocal, loadFromLocal } from "../lib/localStorage";
 
 function NewNotes() {
   const [inputText, setInputText] = useState("");
-  const [notes, setNotes] = useState([]);
+  const localStorageNotes = loadFromLocal("_notes");
+  const [notes, setNotes] = useState(localStorageNotes ?? []);
+
+  useEffect(() => {
+    saveToLocal("_notes", notes);
+  }, [notes]);
+
 
   return (
     <>
