@@ -13,8 +13,8 @@ export default function NewAppointment() {
     time: "",
   };
   const [appointment, setAppointment] = useState(initialAppointments);
-  const localStorageProducts = loadFromLocal("_appointments");
-  const [appointments, setAppointments] = useState(localStorageProducts ?? []);
+  const localStorageAppointments = loadFromLocal("_appointments");
+  const [appointments, setAppointments] = useState(localStorageAppointments ?? []);
 
   useEffect(() => {
     saveToLocal("_appointments", appointments);

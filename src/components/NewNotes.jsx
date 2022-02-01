@@ -6,8 +6,8 @@ import { saveToLocal, loadFromLocal } from "../lib/localStorage";
 
 function NewNotes() {
   const [inputText, setInputText] = useState("");
-  const localStorageProducts = loadFromLocal("_notes");
-  const [notes, setNotes] = useState(localStorageProducts ?? []);
+  const localStorageNotes = loadFromLocal("_notes");
+  const [notes, setNotes] = useState(localStorageNotes ?? []);
 
   useEffect(() => {
     saveToLocal("_notes", notes);
