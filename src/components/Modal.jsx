@@ -1,12 +1,19 @@
 import styled from "styled-components";
-import AvatarData from "./AvatarData";
-const Modal = ({ showModal, toggleModal }) => {
+
+const Modal = ({ showModal, toggleModal, profileImage }) => {
   return (
     <Container>
       {showModal && (
         <ModalBox>
-          <Button onClick={toggleModal}>-</Button>
-          <AvatarData></AvatarData>
+          {profileImage.map((profileImage, index) => (
+            <div key={index}>
+              <img
+                src={profileImage.image}
+                alt="ProfilImage"
+                onClick={toggleModal}
+              />
+            </div>
+          ))}
         </ModalBox>
       )}
     </Container>
@@ -19,7 +26,8 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 13rem;
+
+  position: absolute;
 `;
 
 const ModalBox = styled.div`
@@ -33,6 +41,7 @@ const ModalBox = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   border-radius: 1rem;
+  top: -6rem;
 `;
 const Button = styled.button`
   position: absolute;

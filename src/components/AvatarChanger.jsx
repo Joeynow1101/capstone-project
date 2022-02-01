@@ -2,31 +2,34 @@ import DogAvatar from "../Images/DogAvatar.png";
 import styled from "styled-components";
 import { useState } from "react";
 import Modal from "./Modal";
-
-
+import AvatarData from "./AvatarData";
 function AvatarChanger() {
-    const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [profileImage, setProfileImage] = useState(AvatarData);
 
-    const toggleModal = () => {
-        setShowModal(!showModal);
-      };
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+ 
 
   return (
     <>
       <AvatarBox>
-          <img src={DogAvatar} alt="" />
-      <Modal showModal={showModal} toggleModal={toggleModal}>
-      
-      </Modal>
-      <Button onClick={toggleModal}  >+</Button>
+        <img src={DogAvatar} alt="" />
+        <Button onClick={toggleModal}>+</Button>
+        <Modal
+          showModal={showModal}
+          toggleModal={toggleModal}
+          
+          profileImage={profileImage}
+        ></Modal>
       </AvatarBox>
     </>
-   
   );
 }
 
 export default AvatarChanger;
-
 
 const AvatarBox = styled.div`
   height: 10rem;
@@ -35,7 +38,12 @@ const AvatarBox = styled.div`
   border: 5px solid var(--primary-one);
   background-color: white;
   position: relative;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    overflow: auto;
+  }
 `;
 
 const Button = styled.button`
@@ -49,6 +57,4 @@ const Button = styled.button`
   border: none;
   bottom: 0.2rem;
   right: 0.2rem;
-  
-  
 `;

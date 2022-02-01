@@ -139,12 +139,13 @@ const Form = styled.form`
   height: 100%;
   margin: auto;
   align-items: center;
+  gap: 1rem;
   
 `;
 
 const ButtonBox = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 `;
 const RadioBox = styled.div`
   display: flex;

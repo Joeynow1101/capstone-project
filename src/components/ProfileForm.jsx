@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import styled from "styled-components";
 import DogAvatar from "../Images/DogAvatar.png";
 import { saveToLocal, loadFromLocal } from "../lib/localStorage";
