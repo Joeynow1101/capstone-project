@@ -11,17 +11,14 @@ function AvatarChanger() {
     setShowModal(!showModal);
   };
 
- 
-
   return (
     <>
       <AvatarBox>
-        <img src={DogAvatar} alt="" />
+        <img src={profileImage} alt="" />
         <Button onClick={toggleModal}>+</Button>
         <Modal
           showModal={showModal}
           toggleModal={toggleModal}
-          
           profileImage={profileImage}
         ></Modal>
       </AvatarBox>

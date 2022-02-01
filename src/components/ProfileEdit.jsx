@@ -11,6 +11,7 @@ import AvatarChanger from "../components/AvatarChanger";
 
 export default function ProfileEdit() {
   const initialUser = {
+    image: "",
     name: "",
     breed: "",
     weight: "",

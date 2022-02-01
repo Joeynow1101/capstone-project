@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Modal = ({ showModal, toggleModal, profileImage }) => {
+const Modal = ({ showModal, toggleModal, profileImage,onHandleChange }) => {
   return (
     <Container>
       {showModal && (
@@ -11,6 +11,7 @@ const Modal = ({ showModal, toggleModal, profileImage }) => {
                 src={profileImage.image}
                 alt="ProfilImage"
                 onClick={toggleModal}
+                onChange={onHandleChange}
               />
             </div>
           ))}

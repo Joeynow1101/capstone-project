@@ -19,7 +19,7 @@ const ProfileForm = () => {
       {users.map((user, index) => (
         <article key={index}>
           <ImgBox>
-            <Avatar src={DogAvatar} alt="Avatar" />
+            <Avatar src={user.image} alt="Avatar" />
             <h2>{user.name}</h2>
           </ImgBox>
           <InfoBox>
