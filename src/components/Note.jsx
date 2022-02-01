@@ -14,7 +14,7 @@ function Note({ text, notes, setNotes, note }) {
       <span>{text}</span>
       <NoteFooter>
         <DeleteButton onClick={deleteHandler}>
-          <img src={DeleteIcon} alt="DeleteIcon" />
+        &#10004;
         </DeleteButton>
       </NoteFooter>
     </NoteBox>

@@ -134,6 +134,7 @@ const CardBox = styled.div`
     position: absolute;
     right: 1rem;
     bottom: 1rem;
+    
   }
 `;
 
