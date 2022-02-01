@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useState } from "react";
 import Modal from "./Modal";
 import AvatarData from "./AvatarData";
-function AvatarChanger() {
+
+function AvatarChanger({ onAddProfileImage, profileImage }) {
   const [showModal, setShowModal] = useState(false);
-  const [profileImage, setProfileImage] = useState(AvatarData);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -14,12 +14,13 @@ function AvatarChanger() {
   return (
     <>
       <AvatarBox>
-        <img src={profileImage} alt="" />
+        <img src={profileImage !== "" ? profileImage : DogAvatar} alt="" />
         <Button onClick={toggleModal}>+</Button>
         <Modal
           showModal={showModal}
           toggleModal={toggleModal}
-          profileImage={profileImage}
+          profileImages={AvatarData}
+          onAddProfileImage={onAddProfileImage}
         ></Modal>
       </AvatarBox>
     </>
@@ -32,8 +33,8 @@ const AvatarBox = styled.div`
   height: 10rem;
   width: 10rem;
   border-radius: 50%;
-  border: 5px solid var(--primary-one);
-  background-color: white;
+  border: 5px solid var(--primary-two);
+  background-color: #ffffff88;
   position: relative;
   display: flex;
   align-items: center;

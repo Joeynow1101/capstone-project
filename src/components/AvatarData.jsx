@@ -4,6 +4,10 @@ import Avatar3 from "../Images/AvatarImages/Avatar3.png";
 import Avatar4 from "../Images/AvatarImages/Avatar4.png";
 import Avatar5 from "../Images/AvatarImages/Avatar5.png";
 import Avatar6 from "../Images/AvatarImages/Avatar6.png";
+import Avatar7 from "../Images/AvatarImages/Avatar7.png";
+import Avatar8 from "../Images/AvatarImages/Avatar8.png";
+import Avatar9 from "../Images/AvatarImages/Avatar9.png";
+import Avatar10 from "../Images/AvatarImages/Avatar10.png";
 
 const AvatarData = [
   {
@@ -30,6 +34,22 @@ const AvatarData = [
     id: "6",
     image: Avatar6,
   },
+  {
+    id: "7",
+    image: Avatar7,
+  },
+  {
+    id: "8",
+    image: Avatar8,
+  },
+  {
+    id: "9",
+    image: Avatar9,
+  },
+  {
+    id: "10",
+    image: Avatar10,
+  },
 ];
-console.log(AvatarData)
+
 export default AvatarData;

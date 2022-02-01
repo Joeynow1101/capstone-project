@@ -5,6 +5,7 @@ import GlobalStyles, {
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { saveToLocal, loadFromLocal } from "../lib/localStorage";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function NewAppointment() {
   const initialAppointments = {
@@ -14,7 +15,9 @@ export default function NewAppointment() {
   };
   const [appointment, setAppointment] = useState(initialAppointments);
   const localStorageAppointments = loadFromLocal("_appointments");
-  const [appointments, setAppointments] = useState(localStorageAppointments ?? []);
+  const [appointments, setAppointments] = useState(
+    localStorageAppointments ?? []
+  );
 
   useEffect(() => {
     saveToLocal("_appointments", appointments);
@@ -43,55 +46,62 @@ export default function NewAppointment() {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <AppointmentForm
-          type="text"
-          name="title"
-          placeholder="Titel"
-          onChange={handleChange}
-          value={appointment.title}
-          required={true}
-        ></AppointmentForm>
-        <AppointmentForm
-          type="date"
-          name="date"
-          placeholder="Datum"
-          onChange={handleChange}
-          value={appointment.date}
-          required={true}
-        ></AppointmentForm>
-        <AppointmentForm
-          type="time"
-          name="time"
-          placeholder="Uhrzeit"
-          onChange={handleChange}
-          value={appointment.time}
-          required={true}
-        ></AppointmentForm>
+      <AnimatePresence exitBeforeEnter>
+        <Form onSubmit={handleSubmit}>
+          <AppointmentForm
+            type="text"
+            name="title"
+            placeholder="Titel"
+            onChange={handleChange}
+            value={appointment.title}
+            required={true}
+          ></AppointmentForm>
+          <AppointmentForm
+            type="date"
+            name="date"
+            placeholder="Datum"
+            onChange={handleChange}
+            value={appointment.date}
+            required={true}
+          ></AppointmentForm>
+          <AppointmentForm
+            type="time"
+            name="time"
+            placeholder="Uhrzeit"
+            onChange={handleChange}
+            value={appointment.time}
+            required={true}
+          ></AppointmentForm>
 
-        <Button type="submit">Termin erstellen</Button>
-        <Button
-          type="reset"
-          onClick={() => {
-            setAppointment(initialAppointments);
-          }}
-        >
-          Zurücksetzen
-        </Button>
-      </Form>
-
-      {appointments.map((appointment, index) => (
-        <CardBox key={index}>
-          <div>
-            <h3>{appointment.title}</h3>
-            <p>{appointment.date}</p>
-            <p> {appointment.time}</p>
-          </div>
-          <DeleteButton onClick={() => handleDelete(appointment)}>
-            &#10004;
-          </DeleteButton>
-        </CardBox>
-      ))}
+          <Button type="submit">Termin erstellen</Button>
+          <Button
+            type="reset"
+            onClick={() => {
+              setAppointment(initialAppointments);
+            }}
+          >
+            Zurücksetzen
+          </Button>
+        </Form>
+        {appointments.map((appointment, index) => (
+          <motion.div
+            exit={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+          >
+            <CardBox key={index}>
+              <div>
+                <h3>{appointment.title}</h3>
+                <p>{appointment.date}</p>
+                <p> {appointment.time}</p>
+              </div>
+              <DeleteButton onClick={() => handleDelete(appointment)}>
+                &#10004;
+              </DeleteButton>
+            </CardBox>
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </>
   );
 }
@@ -134,7 +144,6 @@ const CardBox = styled.div`
     position: absolute;
     right: 1rem;
     bottom: 1rem;
-    
   }
 `;
 

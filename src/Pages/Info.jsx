@@ -3,23 +3,30 @@ import Header from "../components/Header";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
+import { motion } from "framer-motion";
 
 function Info() {
   return (
     <>
-      <Header titleText={"Infos"} />
-      <Container>
-        <NavLink to="season">
-          <Button>Läufigkeit</Button>
-        </NavLink>
-        <NavLink to="deworming">
-          <Button>Entwurmung</Button>
-        </NavLink>
-        <NavLink to="vaccination">
-          <Button>Impfungen</Button>
-        </NavLink>
-      </Container>
-      <Navbar />
+      <motion.div
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+      >
+        <Header titleText={"Infos"} />
+        <Container>
+          <NavLink to="season">
+            <Button>Läufigkeit</Button>
+          </NavLink>
+          <NavLink to="deworming">
+            <Button>Entwurmung</Button>
+          </NavLink>
+          <NavLink to="vaccination">
+            <Button>Impfungen</Button>
+          </NavLink>
+        </Container>
+        <Navbar />
+      </motion.div>
     </>
   );
 }

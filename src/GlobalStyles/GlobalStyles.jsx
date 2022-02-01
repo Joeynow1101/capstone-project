@@ -22,6 +22,7 @@ body {
     margin: 3.5rem 0 5rem 0;
     font-family: sans-serif;
     background-image: url(${BackgroundMain});
+    
   }
 `;
 
