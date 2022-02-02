@@ -6,15 +6,15 @@ import { motion } from "framer-motion";
 function Deworming() {
   return (
     <>
+        <Header titleText={"Entwurmung"} />
       <motion.div
         exit={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-        <Header titleText={"Entwurmung"} />
         <DewormingList />
-        <Navbar />
       </motion.div>
+        <Navbar />
     </>
   );
 }

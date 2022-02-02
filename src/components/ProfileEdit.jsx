@@ -26,7 +26,7 @@ export default function ProfileEdit() {
 
   useEffect(() => {
     saveToLocal("_users", users);
-    if (users.length > 0) navigate("/profile");
+   if (users.length > 0) navigate("/profile");
   }, [users]);
 
   const handleChange = (event) => {

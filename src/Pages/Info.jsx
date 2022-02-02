@@ -8,12 +8,12 @@ import { motion } from "framer-motion";
 function Info() {
   return (
     <>
+        <Header titleText={"Infos"} />
       <motion.div
         exit={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-        <Header titleText={"Infos"} />
         <Container>
           <NavLink to="season">
             <Button>Läufigkeit</Button>
@@ -25,8 +25,8 @@ function Info() {
             <Button>Impfungen</Button>
           </NavLink>
         </Container>
-        <Navbar />
       </motion.div>
+        <Navbar />
     </>
   );
 }

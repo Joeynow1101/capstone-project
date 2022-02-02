@@ -6,15 +6,15 @@ import SeasonList from "../components/SeasonList";
 function Season() {
   return (
     <>
+        <Header titleText={"Läufigkeit"} />
       <motion.div
         exit={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-        <Header titleText={"Läufigkeit"} />
         <SeasonList />
-        <Navbar />
       </motion.div>
+        <Navbar />
     </>
   );
 }

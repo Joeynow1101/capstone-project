@@ -6,15 +6,15 @@ import { motion } from "framer-motion";
 function Appointment() {
   return (
     <>
+      <Header titleText={"Termine"} />
       <motion.div
         exit={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-        <Header titleText={"Termine"} />
         <NewAppointment></NewAppointment>
-        <Navbar />
       </motion.div>
+      <Navbar />
     </>
   );
 }
