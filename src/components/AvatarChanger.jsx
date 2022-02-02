@@ -18,8 +18,8 @@ function AvatarChanger({ onAddProfileImage, profileImage }) {
         <Button onClick={toggleModal}>+</Button>
         <Modal
           showModal={showModal}
-          toggleModal={toggleModal}
           profileImages={AvatarData}
+          toggleModal={toggleModal} 
           onAddProfileImage={onAddProfileImage}
         ></Modal>
       </AvatarBox>

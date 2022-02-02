@@ -25,8 +25,8 @@ const Modal = ({
                       src={profileImage.image}
                       alt="ProfilImage"
                       onClick={() => {
+                        toggleModal()
                         onAddProfileImage(profileImage.image);
-                        toggleModal();
                       }}
                       onChange={onHandleChange}
                     />
