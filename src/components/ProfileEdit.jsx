@@ -26,7 +26,7 @@ export default function ProfileEdit() {
 
   useEffect(() => {
     saveToLocal("_users", users);
-   if (users.length > 0) navigate("/profile");
+    if (users.length > 0) navigate("/profile");
   }, [users]);
 
   const handleChange = (event) => {
@@ -62,7 +62,7 @@ export default function ProfileEdit() {
           id="name"
           onChange={handleChange}
           value={user.name}
-          //required
+          required
         />
 
         <FormInput
@@ -72,7 +72,7 @@ export default function ProfileEdit() {
           id="breed"
           onChange={handleChange}
           value={user.breed}
-          //required
+          required
         />
 
         <FormInput
@@ -82,12 +82,10 @@ export default function ProfileEdit() {
           name="weight"
           onChange={handleChange}
           value={user.weight}
-          //required
+          required
         />
         <SelectBox>
-          <select name="age" value={user.age} onChange={handleChange} 
-          //required
-          >
+          <select name="age" value={user.age} onChange={handleChange} required>
             <option hidden value="">
               Alter
             </option>
@@ -100,7 +98,7 @@ export default function ProfileEdit() {
             name="activity"
             value={user.activity}
             onChange={handleChange}
-            //required
+            required
           >
             <option hidden value="">
               Aktivität
@@ -117,7 +115,7 @@ export default function ProfileEdit() {
             name="gender"
             value="Rüde"
             onChange={handleChange}
-            //required
+            required
           />
 
           <label htmlFor="female"> Hündin</label>

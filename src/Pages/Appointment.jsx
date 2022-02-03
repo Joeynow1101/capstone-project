@@ -12,7 +12,7 @@ function Appointment() {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-        <NewAppointment></NewAppointment>
+        <NewAppointment/>
       </motion.div>
       <Navbar />
     </>

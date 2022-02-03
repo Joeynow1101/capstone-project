@@ -12,7 +12,7 @@ function Notes() {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-        <NewNotes></NewNotes>
+        <NewNotes/>
       </motion.div>
         <Navbar />
     </>

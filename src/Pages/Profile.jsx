@@ -12,7 +12,7 @@ function Profile() {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-        <ProfileForm></ProfileForm>
+        <ProfileForm/>
       </motion.div>
       <Navbar />
     </>

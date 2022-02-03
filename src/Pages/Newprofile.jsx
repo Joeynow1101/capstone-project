@@ -13,7 +13,7 @@ const Newprofile = () => {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
         >
-          <ProfileEdit></ProfileEdit>
+          <ProfileEdit/>
         </motion.div>
           <Navbar />
       </AnimatePresence>

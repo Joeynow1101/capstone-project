@@ -9,35 +9,33 @@ const Modal = ({
   onAddProfileImage,
 }) => {
   return (
-    <>
-      <AnimatePresence exitBeforeEnter>
-        <Container>
-          {showModal && (
-            <motion.div
-              exit={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-            >
-              <ModalBox>
-                {profileImages.map((profileImage, index) => (
-                  <div key={index}>
-                    <img
-                      src={profileImage.image}
-                      alt="ProfilImage"
-                      onClick={() => {
-                        toggleModal()
-                        onAddProfileImage(profileImage.image);
-                      }}
-                      onChange={onHandleChange}
-                    />
-                  </div>
-                ))}
-              </ModalBox>
-            </motion.div>
-          )}
-        </Container>
-      </AnimatePresence>
-    </>
+    <AnimatePresence exitBeforeEnter>
+      <Container>
+        {showModal && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+          >
+            <ModalBox>
+              {profileImages.map((profileImage, index) => (
+                <div key={index}>
+                  <img
+                    src={profileImage.image}
+                    alt="ProfilImage"
+                    onClick={() => {
+                      toggleModal();
+                      onAddProfileImage(profileImage.image);
+                    }}
+                    onChange={onHandleChange}
+                  />
+                </div>
+              ))}
+            </ModalBox>
+          </motion.div>
+        )}
+      </Container>
+    </AnimatePresence>
   );
 };
 
