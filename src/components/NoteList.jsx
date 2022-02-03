@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Note from "../components/Note";
-import { motion, AnimatePresence } from "framer-motion";
+import styled from 'styled-components';
+import Note from '../components/Note';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function NoteList({ setNotes, notes }) {
   return (
@@ -12,11 +12,11 @@ function NoteList({ setNotes, notes }) {
               exit={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
+              key={note.id}
             >
               <Note
                 setNotes={setNotes}
                 notes={notes}
-                key={note.id}
                 text={note.text}
                 id={note.id}
                 note={note}
@@ -32,7 +32,7 @@ function NoteList({ setNotes, notes }) {
 export default NoteList;
 
 const NewNoteList = styled.div`
-  font-family: "CaveatBrush";
+  font-family: 'CaveatBrush';
   font-size: 1.5rem;
   margin: 1rem;
 

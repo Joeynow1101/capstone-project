@@ -1,14 +1,14 @@
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
-import { motion } from "framer-motion";
+import Navbar from '../components/Navbar';
+import Header from '../components/Header';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { Button } from '../GlobalStyles/GlobalStyles';
+import { motion } from 'framer-motion';
 
 function Info() {
   return (
     <>
-        <Header titleText={"Infos"} />
+      <Header titleText={'Infos'} />
       <motion.div
         exit={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -26,7 +26,7 @@ function Info() {
           </NavLink>
         </Container>
       </motion.div>
-        <Navbar />
+      <Navbar />
     </>
   );
 }

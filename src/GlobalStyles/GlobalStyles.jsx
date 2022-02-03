@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from "styled-components";
-import BackgroundMain from "../Images/BackgroundMain.png";
+import styled, { createGlobalStyle } from 'styled-components';
+import BackgroundMain from '../Images/BackgroundMain.png';
 
 const GlobalStyles = createGlobalStyle`
 *{

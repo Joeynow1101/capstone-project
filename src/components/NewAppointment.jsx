@@ -1,26 +1,23 @@
-import GlobalStyles, {
-  Button,
-  DeleteButton,
-} from "../GlobalStyles/GlobalStyles";
-import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { saveToLocal, loadFromLocal } from "../lib/localStorage";
-import { motion, AnimatePresence } from "framer-motion";
+import { Button, DeleteButton } from '../GlobalStyles/GlobalStyles';
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import { saveToLocal, loadFromLocal } from '../lib/localStorage';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function NewAppointment() {
   const initialAppointments = {
-    title: "",
-    date: "",
-    time: "",
+    title: '',
+    date: '',
+    time: '',
   };
   const [appointment, setAppointment] = useState(initialAppointments);
-  const localStorageAppointments = loadFromLocal("_appointments");
+  const localStorageAppointments = loadFromLocal('_appointments');
   const [appointments, setAppointments] = useState(
     localStorageAppointments ?? []
   );
 
   useEffect(() => {
-    saveToLocal("_appointments", appointments);
+    saveToLocal('_appointments', appointments);
   }, [appointments]);
 
   const handleDelete = (deleteAppointment) => {
@@ -45,64 +42,63 @@ export default function NewAppointment() {
   };
 
   return (
-    <>
-      <AnimatePresence exitBeforeEnter>
-        <Form onSubmit={handleSubmit}>
-          <AppointmentForm
-            type="text"
-            name="title"
-            placeholder="Titel"
-            onChange={handleChange}
-            value={appointment.title}
-            required={true}
-          ></AppointmentForm>
-          <AppointmentForm
-            type="date"
-            name="date"
-            placeholder="Datum"
-            onChange={handleChange}
-            value={appointment.date}
-            required={true}
-          ></AppointmentForm>
-          <AppointmentForm
-            type="time"
-            name="time"
-            placeholder="Uhrzeit"
-            onChange={handleChange}
-            value={appointment.time}
-            required={true}
-          ></AppointmentForm>
+    <AnimatePresence exitBeforeEnter>
+      <Form onSubmit={handleSubmit}>
+        <AppointmentForm
+          type="text"
+          name="title"
+          placeholder="Titel"
+          onChange={handleChange}
+          value={appointment.title}
+          required={true}
+        ></AppointmentForm>
+        <AppointmentForm
+          type="date"
+          name="date"
+          placeholder="Datum"
+          onChange={handleChange}
+          value={appointment.date}
+          required={true}
+        ></AppointmentForm>
+        <AppointmentForm
+          type="time"
+          name="time"
+          placeholder="Uhrzeit"
+          onChange={handleChange}
+          value={appointment.time}
+          required={true}
+        ></AppointmentForm>
 
-          <Button type="submit">Termin erstellen</Button>
-          <Button
-            type="reset"
-            onClick={() => {
-              setAppointment(initialAppointments);
-            }}
-          >
-            Zurücksetzen
-          </Button>
-        </Form>
-        {appointments.map((appointment, index) => (
-          <motion.div
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-          >
-            <CardBox key={index}>
-              <div>
-                <h3>{appointment.title}</h3>
-                <p>{appointment.date}</p>
-                <p> {appointment.time}</p>
-              </div>
-              <DeleteButton onClick={() => handleDelete(appointment)}>
-                &#10004;
-              </DeleteButton>
-            </CardBox>
-          </motion.div>
-        ))}
-      </AnimatePresence>
-    </>
+        <Button type="submit">Termin erstellen</Button>
+        <Button
+          type="reset"
+          onClick={() => {
+            setAppointment(initialAppointments);
+          }}
+        >
+          Zurücksetzen
+        </Button>
+      </Form>
+      {appointments.map((appointment, index) => (
+        <motion.div
+          exit={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          key={index}
+        >
+          <CardBox>
+            <div>
+              <h3>{appointment.title}</h3>
+              <p>{appointment.date}</p>
+              <p> {appointment.time}</p>
+            </div>
+            <DeleteButton onClick={() => handleDelete(appointment)}>
+              &#10004;
+            </DeleteButton>
+          </CardBox>
+        </motion.div>
+      ))}
+    </AnimatePresence>
   );
 }
 
@@ -124,7 +120,7 @@ const Form = styled.form`
 const CardBox = styled.div`
   position: relative;
   background-color: var(--primary-one-opacity);
-  font-family: "CaveatBrush";
+  font-family: 'CaveatBrush';
   font-size: 1.4rem;
   color: var(--secondary-one);
   margin-top: 1rem;
@@ -148,7 +144,7 @@ const CardBox = styled.div`
 `;
 
 const AppointmentForm = styled.input`
-  font-family: "CaveatBrush";
+  font-family: 'CaveatBrush';
   width: 16rem;
   border: 0;
   border-bottom: 1px solid var(--secondary-two);
@@ -159,7 +155,7 @@ const AppointmentForm = styled.input`
   margin: 0.5rem 0 1rem 0;
 
   &::placeholder {
-    font-family: "CaveatBrush";
+    font-family: 'CaveatBrush';
     font-size: 1.7rem;
     color: var(--secondary-one);
   }

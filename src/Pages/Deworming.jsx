@@ -1,12 +1,12 @@
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
-import DewormingList from "../components/DewormingList";
-import { motion } from "framer-motion";
+import Navbar from '../components/Navbar';
+import Header from '../components/Header';
+import DewormingList from '../components/DewormingList';
+import { motion } from 'framer-motion';
 
 function Deworming() {
   return (
     <>
-      <Header titleText={"Entwurmung"} />
+      <Header titleText={'Entwurmung'} />
       <motion.div
         exit={{ opacity: 0 }}
         animate={{ opacity: 1 }}

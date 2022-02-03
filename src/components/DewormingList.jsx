@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { saveToLocal, loadFromLocal } from '../lib/localStorage';
 import DewormingImage from '../Images/DewormingImage.jpg';
-import GlobalStyles, { Button } from '../GlobalStyles/GlobalStyles';
+import { Button } from '../GlobalStyles/GlobalStyles';
 import DewormingData from './DewormingData';
 import styled from 'styled-components';
 

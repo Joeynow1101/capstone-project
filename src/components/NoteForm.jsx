@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { v4 as uuidv4 } from "uuid";
+import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 function NoteForm({ setInputText, setNotes, notes, inputText }) {
   function handleChange(event) {
@@ -7,14 +7,14 @@ function NoteForm({ setInputText, setNotes, notes, inputText }) {
   }
 
   const handleSubmit = () => {
-    if (inputText !== "") {
+    if (inputText !== '') {
       setNotes([...notes, { text: inputText, completed: false, id: uuidv4() }]);
-      setInputText("");
+      setInputText('');
     }
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       event.preventDefault();
       handleSubmit();
     }
@@ -41,7 +41,7 @@ function NoteForm({ setInputText, setNotes, notes, inputText }) {
 export default NoteForm;
 
 const NoteInput = styled.input`
-  font-family: "CaveatBrush";
+  font-family: 'CaveatBrush';
   width: 18rem;
   border: 0;
   border-bottom: 1px solid var(--secondary-two);
@@ -52,7 +52,7 @@ const NoteInput = styled.input`
   margin: 2rem 0 1rem 0;
 
   &::placeholder {
-    font-family: "CaveatBrush";
+    font-family: 'CaveatBrush';
     font-size: 1.5rem;
     color: var(--secondary-one);
   }

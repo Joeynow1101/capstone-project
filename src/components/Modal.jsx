@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Modal = ({
   showModal,

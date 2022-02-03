@@ -10,7 +10,7 @@ const SeasonsData = () => {
         Die erste Phase der Läufigkeit dauert im Schnitt 9 Tage, kann aber
         zwischen 3 und 17 Tage variieren. Die Vulva deiner Hündin schwillt an
         und blutet – bei manchen relativ stark, bei anderen nur schwach. Zu
-        diesem Zeitpunkt ist deine Hundedame{" "}
+        diesem Zeitpunkt ist deine Hundedame{' '}
         <strong>noch nicht fruchtbar</strong> , dennoch fühlen sich Rüden von
         ihr stark angezogen. Deinen Liebling interessiert das in dieser Phase
         herzlich wenig. Es kann vorkommen, dass sie interessante Rüden in die
@@ -20,7 +20,7 @@ const SeasonsData = () => {
       <p>
         Genau so wie der Proöstrus dauert der Östrus in etwa 9 Tage, kann aber
         zwischen 3 und 21 Tage schwanken. Die Vulva ist nicht mehr ganz so stark
-        geschwollen und der Ausfluss wird etwas wässriger.{" "}
+        geschwollen und der Ausfluss wird etwas wässriger.{' '}
         <strong> Deine Hündin ist nun fruchtbar</strong>, da während des Östrus
         der Eisprung stattfindet, und lässt den Deckakt zu, wenn sie auf einen
         interessierten Rüden trifft.
