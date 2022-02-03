@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import { saveToLocal, loadFromLocal } from "../lib/localStorage";
-import DewormingImage from "../Images/DewormingImage.jpg";
-import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
-import DewormingData from "./DewormingData";
-import styled from "styled-components";
+import { useEffect, useState } from 'react';
+import { saveToLocal, loadFromLocal } from '../lib/localStorage';
+import DewormingImage from '../Images/DewormingImage.jpg';
+import GlobalStyles, { Button } from '../GlobalStyles/GlobalStyles';
+import DewormingData from './DewormingData';
+import styled from 'styled-components';
 
 function Deworming() {
   const [showDate, setShowDate] = useState(false);
   const [dewormingDate, setDewormingDate] = useState(
-    loadFromLocal("_dewormingDate")
+    loadFromLocal('_dewormingDate')
   );
 
   useEffect(() => {
-    saveToLocal("_dewormingDate", dewormingDate);
+    saveToLocal('_dewormingDate', dewormingDate);
   });
 
   const months = 3;
   const addDate = new Date(dewormingDate);
   addDate.setMonth(addDate.getMonth() + months);
-  const dateFormatter = Intl.DateTimeFormat("de-DE");
+  const dateFormatter = Intl.DateTimeFormat('de-DE');
   const addingNewDewormingDate = dateFormatter.format(addDate);
 
   const onChange = (event) => {
@@ -45,7 +45,7 @@ function Deworming() {
         />
 
         <Button onClick={handleDateClick}>
-          {showDate && dewormingDate !== null ? "schließen" : "nächster Termin"}
+          {showDate && dewormingDate !== null ? 'schließen' : 'nächster Termin'}
         </Button>
 
         {showDate && dewormingDate !== null && (
@@ -88,7 +88,7 @@ const TextBox = styled.div`
 const DateInput = styled.input`
   margin: auto;
   margin-bottom: 1rem;
-  font-family: "CaveatBrush";
+  font-family: 'CaveatBrush';
   width: 12rem;
   border: 0;
   border-bottom: 1px solid var(--secondary-two);
@@ -98,7 +98,7 @@ const DateInput = styled.input`
   color: var(--secondary-one);
 
   &::placeholder {
-    font-family: "CaveatBrush";
+    font-family: 'CaveatBrush';
     font-size: 1.7rem;
     color: var(--secondary-one);
   }
@@ -109,7 +109,7 @@ const DateInput = styled.input`
 `;
 
 const Container = styled.div`
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   display: grid;
   justify-content: center;
   grid-gap: 1rem;
@@ -129,7 +129,7 @@ const NewDateBox = styled.div`
   justify-content: center;
   margin: auto;
   h2 {
-    font-family: "CaveatBrush";
+    font-family: 'CaveatBrush';
     font-size: 2.5rem;
     color: var(--secondary-one);
   }
