@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
   height: 60px;
   font-family: CaveatBrush;
   background: var(--primary);
-  color: var(--secondary-two);
+  color: var(--secondary-one);
   position: fixed;
   top: 0;
   border-bottom: 1px solid #382b1713;

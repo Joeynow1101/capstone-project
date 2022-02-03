@@ -1,5 +1,3 @@
-
-
 const SeasonsData = () => {
   return (
     <div>

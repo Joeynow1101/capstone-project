@@ -7,14 +7,17 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { saveToLocal, loadFromLocal } from "../lib/localStorage";
 import { useNavigate } from "react-router-dom";
+import AvatarChanger from "../components/AvatarChanger";
 
 export default function ProfileEdit() {
   const initialUser = {
+    image: "",
     name: "",
     breed: "",
     weight: "",
     age: "",
     activity: "",
+    gender: "",
   };
   const [user, setUser] = useState(initialUser);
   const localStorageUsers = loadFromLocal("_users");
@@ -38,9 +41,20 @@ export default function ProfileEdit() {
     setUsers([...users, user]);
   };
 
+  const addProfileImage = (image) => {
+    setUser({
+      ...user,
+      image,
+    });
+  };
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
+        <AvatarChanger
+          onAddProfileImage={addProfileImage}
+          profileImage={user.image}
+        />
         <FormInput
           type="text"
           placeholder="Name"
@@ -99,7 +113,7 @@ export default function ProfileEdit() {
           <input
             type="radio"
             name="gender"
-            value="male"
+            value="Rüde"
             onChange={handleChange}
             required
           />
@@ -108,11 +122,12 @@ export default function ProfileEdit() {
           <input
             type="radio"
             name="gender"
-            value="female"
+            value="Hündin"
             onChange={handleChange}
             required
           />
         </RadioBox>
+
         <ButtonBox>
           <Button type="submit">Erstellen</Button>
 
@@ -133,26 +148,34 @@ export default function ProfileEdit() {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
+  height: 80vh;
   margin: auto;
   align-items: center;
   gap: 2rem;
-
-  
+  input {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 `;
 
 const ButtonBox = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 `;
 const RadioBox = styled.div`
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
+  accent-color: var(--primary-two);
 
   label {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.2rem;
+    margin-left: 2rem;
   }
   input {
+    margin-right: 1.2rem;
   }
 `;
 
@@ -190,20 +213,5 @@ const FormInput = styled.input`
     font-size: 1.7rem;
     text-align: center;
     color: var(--secondary-one);
-  }
-`;
-
-const RadioButton = styled.input`
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 1px solid darkgray;
-  border-radius: 50%;
-  outline: none;
-
-  :checked {
-    width: 20px;
-    height: 20px;
-    background-color: var(--primary-two);
   }
 `;

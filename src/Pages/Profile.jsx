@@ -1,17 +1,19 @@
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import ProfileForm from "../components/ProfileForm";
-
-
-
+import { motion } from "framer-motion";
 
 function Profile() {
   return (
     <>
       <Header titleText={"Profil"} />
-
-      <ProfileForm></ProfileForm>
-
+      <motion.div
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+      >
+        <ProfileForm/>
+      </motion.div>
       <Navbar />
     </>
   );

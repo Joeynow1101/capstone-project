@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-
 import styled from "styled-components";
-import DogAvatar from "../Images/DogAvatar.png";
+import { motion } from "framer-motion";
 import { saveToLocal, loadFromLocal } from "../lib/localStorage";
 
 const ProfileForm = () => {
@@ -16,26 +15,34 @@ const ProfileForm = () => {
   const addUser = (user) => setUsers([...users, user]);
 
   return (
-    <form onChange={addUser}>
-      {users.map((user, index) => (
-        <article key={index}>
-          <ImgBox>
-            <Avatar src={DogAvatar} alt="Avatar" />
-            <h2>{user.name}</h2>
-          </ImgBox>
-          <InfoBox>
-            <p>Rasse:</p>
-            <p>{user.breed}</p>
-            <p>Alter:</p>
-            <p>{user.age}</p>
-            <p>Gewicht:</p>
-            <p>{user.weight} Kg</p>
-            <p>Aktivität:</p>
-            <p>{user.activity}</p>
-          </InfoBox>
-        </article>
-      ))}
-    </form>
+    <motion.div
+      exit={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+    >
+      <form onChange={addUser}>
+        {users.map((user, index) => (
+          <article key={index}>
+            <ImgBox>
+              <Avatar src={user.image} alt="Avatar" />
+              <h2>{user.name}</h2>
+            </ImgBox>
+            <InfoBox>
+              <h2>Rasse:</h2>
+              <p>{user.breed}</p>
+              <h2>Alter:</h2>
+              <p>{user.age}</p>
+              <h2>Gewicht:</h2>
+              <p>{user.weight} Kg</p>
+              <h2>Aktivität:</h2>
+              <p>{user.activity}</p>
+              <h2>Geschlecht:</h2>
+              <p>{user.gender}</p>
+            </InfoBox>
+          </article>
+        ))}
+      </form>
+    </motion.div>
   );
 };
 
@@ -46,32 +53,41 @@ const ImgBox = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
+
   h2 {
     font-family: "CaveatBrush";
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--secondary-one);
   }
 `;
 const Avatar = styled.img`
   width: 10rem;
+  height: 10rem;
   border-radius: 50%;
-  border: 1px solid var(--primary-one);
-  margin: 2rem;
+  border: 5px solid var(--primary-one);
+  margin: 1rem;
+  background-color: #ffffff88;
 `;
 
 const InfoBox = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-column-gap: 20px;
-  grid-row-gap: 2rem;
-
+  grid-template-columns: 1fr 1fr;
+  text-align: justify;
+  grid-row-gap: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
   align-items: start;
-  max-width: 80%;
+  width: 90%;
   margin: auto;
-  margin-top: 2rem;
-
+  margin-top: 1.2rem;
+  h2 {
+    margin: auto;
+    color: var(--secondary-one);
+    font-size: 1.7rem;
+  }
   p {
     color: var(--secondary-one);
     font-size: 1.5rem;
+    margin: auto;
   }
 `;

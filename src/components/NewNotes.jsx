@@ -13,7 +13,6 @@ function NewNotes() {
     saveToLocal("_notes", notes);
   }, [notes]);
 
-
   return (
     <>
       <ContainerForm>
@@ -43,8 +42,5 @@ const ContainerList = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
   margin: auto;
-  
-  
 `;
