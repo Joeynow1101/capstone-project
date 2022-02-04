@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 function NoteList({ setNotes, notes }) {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence>
       <NewNoteList>
         <ul>
           {notes.map((note) => (

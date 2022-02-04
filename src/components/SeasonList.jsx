@@ -46,6 +46,8 @@ const Container = styled.div`
     -moz-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -6px #777;
     margin: auto;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
   }
 
   input {
@@ -58,8 +60,6 @@ const Container = styled.div`
     background: transparent;
     color: var(--secondary-one);
     margin: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 
     &::placeholder {
       font-family: 'CaveatBrush';
@@ -73,10 +73,12 @@ const Container = styled.div`
   }
   h2 {
     text-align: center;
+    margin: 1rem 0 1rem 0;
   }
-  p {
-    line-height: 1.8rem;
-    margin-bottom: 2rem;
+  span {
+    line-height: 1.6rem;
+
+    text-align: justify;
     font-size: 1.1rem;
     font-weight: 300;
   }

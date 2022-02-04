@@ -64,17 +64,6 @@ function Deworming() {
 export default Deworming;
 
 const TextBox = styled.div`
-  img {
-    width: 21.5rem;
-    margin-top: 0.5rem;
-    -webkit-box-shadow: 0 10px 6px -6px #777;
-    -moz-box-shadow: 0 10px 6px -6px #777;
-    box-shadow: 0 10px 6px -6px #777;
-  }
-  span {
-    margin-top: 1rem;
-    text-align: justify;
-  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,6 +72,18 @@ const TextBox = styled.div`
   font-size: 1.1rem;
   font-weight: 300;
   color: var(--secondary-one);
+
+  img {
+    border-radius: 10px;
+    width: 21.5rem;
+    margin: 0 0 1rem 0;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+  }
+  span {
+    text-align: justify;
+  }
 `;
 
 const DateInput = styled.input`

@@ -42,7 +42,7 @@ export default function NewAppointment() {
   };
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence>
       <Form onSubmit={handleSubmit}>
         <AppointmentForm
           type="text"

@@ -16,9 +16,9 @@ function App() {
       <AnimatePresence>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile/*" element={<Profile />} />
           <Route path="profile/newprofile" element={<ProfileEdit />} />
-          <Route path="info" element={<Info />}></Route>
+          <Route path="info/*" element={<Info />}></Route>
           <Route path="info/season" element={<Season />}></Route>
           <Route path="info/deworming" element={<Deworming />}></Route>
           <Route path="info/vaccination" element={<Vaccination />}></Route>
