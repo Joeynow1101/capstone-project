@@ -1,28 +1,24 @@
 import styled from 'styled-components';
 import Logo from '../Images/Logo.svg';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../GlobalStyles/GlobalStyles';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
-    <>
-      <Container>
-        <img src={Logo} alt="Logo" />
-
-        <AnimatePresence exitBeforeEnter>
-          <motion.div
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-          >
-            <Link to="profile/newprofile">
-              <Button>Start</Button>
-            </Link>
-          </motion.div>
-        </AnimatePresence>
-      </Container>
-    </>
+    <Container>
+      <img src={Logo} alt="Logo" />
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          exit={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+        >
+          <Button onClick={() => navigate('/profile/newprofile')}>Start</Button>
+        </motion.div>
+      </AnimatePresence>
+    </Container>
   );
 }
 
