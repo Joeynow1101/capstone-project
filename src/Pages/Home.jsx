@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import Logo from "../Images/Logo.svg";
-import { Link } from "react-router-dom";
-import GlobalStyles, { Button } from "../GlobalStyles/GlobalStyles";
-import { motion, AnimatePresence } from "framer-motion";
-import { loadFromLocal } from "../lib/localStorage";
+import styled from 'styled-components';
+import Logo from '../Images/Logo.svg';
+import { Link } from 'react-router-dom';
+import { Button } from '../GlobalStyles/GlobalStyles';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
   return (

@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { saveToLocal, loadFromLocal } from "../lib/localStorage";
-import SeasonsData from "../components/SeasonsData";
-import SeasonImage from "../Images/SeasonImage.jpg";
-import styled from "styled-components";
+import { useState, useEffect } from 'react';
+import { saveToLocal, loadFromLocal } from '../lib/localStorage';
+import SeasonsData from '../components/SeasonsData';
+import SeasonImage from '../Images/SeasonImage.jpg';
+import styled from 'styled-components';
 
 function SeasonList() {
   const [seasonDate, setSeasonDate] = useState(
-    loadFromLocal("_seasonDate") || ""
+    loadFromLocal('_seasonDate') || ''
   );
 
   useEffect(() => {
-    saveToLocal("_seasonDate", seasonDate);
+    saveToLocal('_seasonDate', seasonDate);
   });
 
   const onChange = (event) => {
@@ -33,7 +33,7 @@ function SeasonList() {
 export default SeasonList;
 
 const Container = styled.div`
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   display: grid;
   justify-content: center;
   grid-gap: 0.5rem;
@@ -49,7 +49,7 @@ const Container = styled.div`
   }
 
   input {
-    font-family: "CaveatBrush";
+    font-family: 'CaveatBrush';
     width: 12rem;
     border: 0;
     border-bottom: 1px solid var(--secondary-two);
@@ -62,7 +62,7 @@ const Container = styled.div`
     margin-bottom: 1rem;
 
     &::placeholder {
-      font-family: "CaveatBrush";
+      font-family: 'CaveatBrush';
       font-size: 1.7rem;
       color: var(--secondary-one);
     }

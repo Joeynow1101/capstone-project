@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import DeleteIcon from "../Images/delete.svg";
-import GlobalStyles, { DeleteButton } from "../GlobalStyles/GlobalStyles";
+import styled from 'styled-components';
+import { DeleteButton } from '../GlobalStyles/GlobalStyles';
 
 function Note({ text, notes, setNotes, note }) {
   const deleteHandler = () => {

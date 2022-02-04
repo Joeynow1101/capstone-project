@@ -1,8 +1,8 @@
-import DogAvatar from "../Images/DogAvatar.png";
-import styled from "styled-components";
-import { useState } from "react";
-import Modal from "./Modal";
-import AvatarData from "./AvatarData";
+import DogAvatar from '../Images/DogAvatar.png';
+import styled from 'styled-components';
+import { useState } from 'react';
+import Modal from './Modal';
+import AvatarData from './AvatarData';
 
 function AvatarChanger({ onAddProfileImage, profileImage }) {
   const [showModal, setShowModal] = useState(false);
@@ -14,12 +14,12 @@ function AvatarChanger({ onAddProfileImage, profileImage }) {
   return (
     <>
       <AvatarBox>
-        <img src={profileImage !== "" ? profileImage : DogAvatar} alt="" />
+        <img src={profileImage !== '' ? profileImage : DogAvatar} alt="" />
         <Button onClick={toggleModal}>+</Button>
         <Modal
           showModal={showModal}
           profileImages={AvatarData}
-          toggleModal={toggleModal} 
+          toggleModal={toggleModal}
           onAddProfileImage={onAddProfileImage}
         ></Modal>
       </AvatarBox>

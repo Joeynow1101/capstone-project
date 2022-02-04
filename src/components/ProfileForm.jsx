@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { motion } from "framer-motion";
-import { saveToLocal, loadFromLocal } from "../lib/localStorage";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { saveToLocal, loadFromLocal } from '../lib/localStorage';
 
 const ProfileForm = () => {
-  const localStorageUsers = loadFromLocal("_users");
+  const localStorageUsers = loadFromLocal('_users');
 
   const [users, setUsers] = useState(localStorageUsers ?? []);
 
   useEffect(() => {
-    saveToLocal("_users", users);
+    saveToLocal('_users', users);
   }, [users]);
 
   const addUser = (user) => setUsers([...users, user]);
@@ -55,7 +55,7 @@ const ImgBox = styled.div`
   flex-direction: column;
 
   h2 {
-    font-family: "CaveatBrush";
+    font-family: 'CaveatBrush';
     font-size: 2.8rem;
     color: var(--secondary-one);
   }
@@ -74,7 +74,7 @@ const InfoBox = styled.div`
   grid-template-columns: 1fr 1fr;
   text-align: justify;
   grid-row-gap: 1.5rem;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 800;
   align-items: start;
   width: 90%;

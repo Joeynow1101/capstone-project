@@ -1,32 +1,28 @@
-import GlobalStyles, {
-  Button,
-  ProfileInput,
-  ProfileSelectInput,
-} from "../GlobalStyles/GlobalStyles";
-import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { saveToLocal, loadFromLocal } from "../lib/localStorage";
-import { useNavigate } from "react-router-dom";
-import AvatarChanger from "../components/AvatarChanger";
+import { Button } from '../GlobalStyles/GlobalStyles';
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import { saveToLocal, loadFromLocal } from '../lib/localStorage';
+import { useNavigate } from 'react-router-dom';
+import AvatarChanger from '../components/AvatarChanger';
 
 export default function ProfileEdit() {
   const initialUser = {
-    image: "",
-    name: "",
-    breed: "",
-    weight: "",
-    age: "",
-    activity: "",
-    gender: "",
+    image: '',
+    name: '',
+    breed: '',
+    weight: '',
+    age: '',
+    activity: '',
+    gender: '',
   };
   const [user, setUser] = useState(initialUser);
-  const localStorageUsers = loadFromLocal("_users");
+  const localStorageUsers = loadFromLocal('_users');
   const [users, setUsers] = useState(localStorageUsers ?? []);
   const navigate = useNavigate();
 
   useEffect(() => {
-    saveToLocal("_users", users);
-    if (users.length > 0) navigate("/profile");
+    saveToLocal('_users', users);
+    if (users.length > 0) navigate('/profile');
   }, [users]);
 
   const handleChange = (event) => {
@@ -170,7 +166,7 @@ const RadioBox = styled.div`
   accent-color: var(--primary-two);
 
   label {
-    font-family: "Raleway", sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.2rem;
     margin-left: 2rem;
   }
@@ -197,7 +193,7 @@ const SelectBox = styled.div`
 `;
 
 const FormInput = styled.input`
-  font-family: "CaveatBrush";
+  font-family: 'CaveatBrush';
   width: 16rem;
   border: 0;
   border-bottom: 1px solid var(--secondary-two);
@@ -209,7 +205,7 @@ const FormInput = styled.input`
   text-align: center;
 
   &::placeholder {
-    font-family: "CaveatBrush";
+    font-family: 'CaveatBrush';
     font-size: 1.7rem;
     text-align: center;
     color: var(--secondary-one);
