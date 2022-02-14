@@ -69,7 +69,7 @@ export default function NewAppointment() {
           required={true}
         ></AppointmentForm>
 
-        <Button type="submit">Termin erstellen</Button>
+        <Button type="submit">erstellen</Button>
         <Button
           type="reset"
           onClick={() => {
