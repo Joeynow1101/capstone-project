@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Newprofile = () => {
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         <Header titleText={'Profil'} />
         <motion.div
           exit={{ opacity: 0 }}

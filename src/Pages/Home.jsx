@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Container>
       <img src={Logo} alt="Logo" />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         <motion.div
           exit={{ opacity: 0 }}
           animate={{ opacity: 1 }}

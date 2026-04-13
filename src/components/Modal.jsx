@@ -9,7 +9,7 @@ const Modal = ({
   onAddProfileImage,
 }) => {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <Container>
         {showModal && (
           <motion.div
