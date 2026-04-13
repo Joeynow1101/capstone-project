@@ -1,18 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { saveToLocal, loadFromLocal } from '../lib/localStorage';
+import { loadFromLocal } from '../lib/localStorage';
 
-const ProfileForm = () => {
+const ProfileForm = ({ onEdit }) => {
   const localStorageUsers = loadFromLocal('_users');
 
-  const [users, setUsers] = useState(localStorageUsers ?? []);
-
-  useEffect(() => {
-    saveToLocal('_users', users);
-  }, [users]);
-
-  const addUser = (user) => setUsers([...users, user]);
+  const [users] = useState(localStorageUsers ?? []);
 
   return (
     <motion.div
@@ -20,12 +14,21 @@ const ProfileForm = () => {
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
     >
-      <form onChange={addUser}>
+      <form>
         {users.map((user, index) => (
           <article key={index}>
             <ImgBox>
               <Avatar src={user.image} alt="Avatar" />
-              <h2>{user.name}</h2>
+              <NameRow>
+                <h2>{user.name}</h2>
+                <GearButton
+                  type="button"
+                  onClick={() => onEdit(user, index)}
+                  aria-label="Profil bearbeiten"
+                >
+                  ⚙
+                </GearButton>
+              </NameRow>
             </ImgBox>
             <InfoBox>
               <h2>Rasse:</h2>
@@ -53,6 +56,12 @@ const ImgBox = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
+`;
+
+const NameRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
   h2 {
     font-family: 'CaveatBrush';
@@ -60,6 +69,24 @@ const ImgBox = styled.div`
     color: var(--secondary-one);
   }
 `;
+
+const GearButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: var(--secondary-one);
+  padding: 0.2rem;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.3s;
+
+  &:hover {
+    opacity: 1;
+    transform: rotate(45deg);
+  }
+`;
+
 const Avatar = styled.img`
   width: 10rem;
   height: 10rem;

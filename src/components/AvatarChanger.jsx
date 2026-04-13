@@ -15,7 +15,7 @@ function AvatarChanger({ onAddProfileImage, profileImage }) {
     <>
       <AvatarBox>
         <img src={profileImage !== '' ? profileImage : DogAvatar} alt="" />
-        <Button onClick={toggleModal}>+</Button>
+        <Button type="button" onClick={toggleModal}>+</Button>
         <Modal
           showModal={showModal}
           profileImages={AvatarData}

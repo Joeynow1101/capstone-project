@@ -1,11 +1,11 @@
 import { Button } from '../GlobalStyles/GlobalStyles';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { saveToLocal, loadFromLocal } from '../lib/localStorage';
 import { useNavigate } from 'react-router-dom';
 import AvatarChanger from '../components/AvatarChanger';
 
-export default function ProfileEdit() {
+export default function ProfileEdit({ existingUser, existingIndex, onEditDone }) {
   const initialUser = {
     image: '',
     name: '',
@@ -15,33 +15,37 @@ export default function ProfileEdit() {
     activity: '',
     gender: '',
   };
-  const [user, setUser] = useState(initialUser);
-  const localStorageUsers = loadFromLocal('_users');
-  const [users, setUsers] = useState(localStorageUsers ?? []);
+
+  const [user, setUser] = useState(existingUser ?? initialUser);
+  const [users, setUsers] = useState(loadFromLocal('_users') ?? []);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    saveToLocal('_users', users);
-    if (users.length > 0) navigate('/profile');
-  }, [users]);
-
   const handleChange = (event) => {
-    let inputValue = event.target.value;
     setUser({
       ...user,
-      [event.target.name]: inputValue,
+      [event.target.name]: event.target.value,
     });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUsers([...users, user]);
+    let updatedUsers;
+    if (existingIndex !== null && existingIndex !== undefined) {
+      updatedUsers = users.map((u, i) => (i === existingIndex ? user : u));
+    } else {
+      updatedUsers = [...users, user];
+    }
+    saveToLocal('_users', updatedUsers);
+    setUsers(updatedUsers);
+    if (onEditDone) {
+      onEditDone();
+    } else {
+      navigate('/profile');
+    }
   };
 
   const addProfileImage = (image) => {
-    setUser({
-      ...user,
-      image,
-    });
+    setUser({ ...user, image });
   };
 
   return (
@@ -111,6 +115,7 @@ export default function ProfileEdit() {
             name="gender"
             value="Rüde"
             onChange={handleChange}
+            checked={user.gender === 'Rüde'}
             required
           />
 
@@ -120,20 +125,31 @@ export default function ProfileEdit() {
             name="gender"
             value="Hündin"
             onChange={handleChange}
+            checked={user.gender === 'Hündin'}
             required
           />
         </RadioBox>
 
         <ButtonBox>
-          <Button type="submit">Erstellen</Button>
+          <Button type="submit">
+            {existingIndex !== null && existingIndex !== undefined
+              ? 'Speichern'
+              : 'Erstellen'}
+          </Button>
 
           <Button
-            type="reset"
+            type="button"
             onClick={() => {
-              setUser(initialUser);
+              if (onEditDone) {
+                onEditDone();
+              } else {
+                setUser(initialUser);
+              }
             }}
           >
-            Zurücksetzen
+            {existingIndex !== null && existingIndex !== undefined
+              ? 'Abbrechen'
+              : 'Zurücksetzen'}
           </Button>
         </ButtonBox>
       </Form>
